@@ -3,7 +3,7 @@
 Employee::Employee(std::string n, std::string s, int sal):
     Record(n, s), salary(sal) {}
 
-double Employee::getSalary() const { return salary; }
+int Employee::getSalary() const { return salary; }
 
 void Employee::showAll()
 {
