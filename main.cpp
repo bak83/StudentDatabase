@@ -9,7 +9,18 @@ int main()
     Student s2("Tadeusz", "Bocian", 225587);
     Student s3("Monika", "Czajkowska", 223509);
 
-    base.addNewStudent(s1);
+    Employee e1("Elzbieta", "Krol", 3740);
+    Employee e2("Roman", "Czarny", 3565);
+
+    base.addNewRecord(&s1);
+    base.addNewRecord(&s2);
+    base.addNewRecord(&s3);
+    base.addNewRecord(&e1);
+    base.addNewRecord(&e2);
+
+    base.displayRecordList();
+
+   /* base.addNewStudent(s1);
     base.addNewStudent(s2);
     base.addNewStudent(s3);
    
@@ -21,7 +32,9 @@ int main()
 
     base.removeStudentByIndex(225587);
 
-    base.displayStudentList();
+    base.displayStudentList();*/
+
+
 
     return 0;
 }
