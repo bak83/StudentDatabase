@@ -2,7 +2,7 @@
 
 #include <iostream>
 #include <string>
-#include <stdint.h>
+
 
 class Record
 {
@@ -10,7 +10,11 @@ class Record
     std::string surname;
 
 public:
-    Record(std::string n, std::string s): name(n), surname(s) {};
+    Record(std::string, std::string);
+    Record() {}
     ~Record() {}
+
+    std::string getName() const;
+    std::string getSurname() const;
 
 };
