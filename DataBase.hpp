@@ -14,9 +14,8 @@ class DataBase
  public:
     void addNewRecord(Record*);
     void displayRecordList();
-   /* void addNewStudent(Student);
+   /*
     void sortStudentsByIndex();
-    void removeStudentByIndex(uint64_t);
-    void displayStudentList();*/
+    void removeStudentByIndex(uint64_t);*/
 
 };
