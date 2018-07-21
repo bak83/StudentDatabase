@@ -3,10 +3,10 @@
 
 class Employee: public Record
 {
-    double salary;
+    int salary;
 
 public:
-    Employee(std::string, std::string, double);
+    Employee(std::string, std::string, int);
     Employee(): Record() {}
     ~Employee() {}
 
