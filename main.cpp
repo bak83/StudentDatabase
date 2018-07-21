@@ -5,7 +5,7 @@ int main()
 {
     DataBase base;
 
-    Student s1("Ferdynand", "Kiepski", 234398);
+    Student s1("Adam", "Malysz", 234398);
     Student s2("Tadeusz", "Bocian", 225587);
     Student s3("Monika", "Czajkowska", 223509);
 
