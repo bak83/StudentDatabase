@@ -1,5 +1,5 @@
-#ifndef STUDENTS_DATABASE_H_
-#define STUDENTS_DATABASE_H_
+#pragma once
+
 #include "Student.hpp"
 #include <vector>
 
@@ -14,5 +14,3 @@ class DataBase
     void displayStudentList();
 
 };
-
-#endif
