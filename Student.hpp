@@ -12,5 +12,6 @@ public:
     ~Student() {}
 
     uint64_t getIndex() const;
+    void showAll() override;
 
 };

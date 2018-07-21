@@ -11,5 +11,6 @@ public:
     ~Employee() {}
 
     int getSalary() const;
+    void showAll() override;
 
 };
