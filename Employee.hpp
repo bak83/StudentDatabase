@@ -10,6 +10,6 @@ public:
     Employee(): Record() {}
     ~Employee() {}
 
-    double getSalary() const;
+    int getSalary() const;
 
 };
