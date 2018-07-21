@@ -20,11 +20,7 @@ int main()
 
     base.displayRecordList();
 
-   /* base.addNewStudent(s1);
-    base.addNewStudent(s2);
-    base.addNewStudent(s3);
-   
-    base.displayStudentList();
+   /*
 
     base.sortStudentsByIndex();
 
