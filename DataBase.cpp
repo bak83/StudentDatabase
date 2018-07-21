@@ -9,8 +9,8 @@ void DataBase::displayRecordList()
 {
     std::cout << "BAZA DANYCH:" << std::endl;
     for (int i = 0; i < dataBase.size(); ++i) {
-        std::cout << i+1 << ". " << dataBase.at(i)->getName() << "  "
-                  << dataBase.at(i)->getSurname() << std::endl;
+        std::cout << i+1 << ". ";
+        dataBase.at(i)->showAll();
     }
 }
 
