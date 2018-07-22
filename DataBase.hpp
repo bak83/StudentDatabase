@@ -8,7 +8,6 @@
 
 class DataBase
 {
-   // std::vector<Student> studentBase;
     std::vector<Record*> dataBase;
 
  public:
@@ -16,6 +15,6 @@ class DataBase
     void displayRecordList();
 
     void sortStudentsByIndex();
-  //  void removeStudentByIndex(int);
+    void removeStudentByIndex(int);
 
 };
