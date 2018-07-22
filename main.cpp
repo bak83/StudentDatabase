@@ -25,12 +25,9 @@ int main()
 
     base.displayRecordList();
 
-
-   /*
-
     base.removeStudentByIndex(225587);
 
-    base.displayStudentList();*/
+    base.displayRecordList();
 
 
 
