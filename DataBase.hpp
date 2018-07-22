@@ -13,7 +13,7 @@ class DataBase
  public:
     void addNewRecord(Record*);
     void displayRecordList();
-
+    void saveToFile();
     void sortStudentsByIndex();
     void removeStudentByIndex(int);
 

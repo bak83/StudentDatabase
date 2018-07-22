@@ -2,6 +2,25 @@
 #include <algorithm>
 #include <typeinfo>
 #include <typeindex>
+#include <fstream>
+#include <cstdlib>
+
+
+void DataBase::saveToFile()
+{
+    std::fstream file;
+    file.open("Base.txt", std::ios::out);
+
+    for (int i = 0; i < dataBase.size(); ++i) {
+        //file.write(reinterpret_cast<char*>(dataBase->data()), sizeof(dataBase));
+        file << dataBase[i] -> getName() << " " << dataBase[i] -> getSurname() << std::endl;
+       // file << dataBase[i] -> getSurname() << std::endl;
+       // file << dataBase[i] -> getIndex() << std::endl;
+    }
+
+    file.close();
+}
+
 
 void DataBase::addNewRecord(Record* r)
 {

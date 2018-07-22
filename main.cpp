@@ -28,7 +28,8 @@ int main()
     base.sortStudentsByIndex();
 
     base.displayRecordList();
-
+    
+    base.saveToFile();
 
 
     return 0;
