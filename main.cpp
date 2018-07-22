@@ -28,10 +28,6 @@ int main()
 
    /*
 
-    base.sortStudentsByIndex();
-
-    base.displayStudentList();
-
     base.removeStudentByIndex(225587);
 
     base.displayStudentList();*/

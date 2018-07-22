@@ -38,7 +38,7 @@ void DataBase::sortStudentsByIndex()
     });
 }
 /*
-void DataBase::removeStudentByIndex(uint64_t idx)
+void DataBase::removeStudentByIndex(int idx)
 {
     for (int i = 0; i < studentBase.size(); ++i) {
         if (idx == studentBase.at(i).getIndex()) {
