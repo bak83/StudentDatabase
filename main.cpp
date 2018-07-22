@@ -20,7 +20,7 @@ int main()
 
     base.displayRecordList();
     
-    std::ifstream file {""};
+    std::ifstream file {"DataBase.cpp"};
     std::cout<<file.rdbuf();
 
 
