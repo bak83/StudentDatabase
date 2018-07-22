@@ -19,9 +19,6 @@ void DataBase::displayRecordList()
 
 void DataBase::sortStudentsByIndex()
 {
-  //  std::vector<Student> students;
-  //  std::vector<Employee> employees;
-  //  std::vector<Record*> buffer;
 
     std::sort(dataBase.begin(), dataBase.end(), [](const Record* p1, const Record* p2) {
         return std::type_index(typeid(*p1)) < std::type_index(typeid(*p2));
