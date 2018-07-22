@@ -21,11 +21,11 @@ int main()
 
     base.displayRecordList();
 
-    base.sortStudentsByIndex();
+    base.removeStudentByIndex(225587);
 
     base.displayRecordList();
 
-    base.removeStudentByIndex(225587);
+    base.sortStudentsByIndex();
 
     base.displayRecordList();
 
