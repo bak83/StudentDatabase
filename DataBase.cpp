@@ -1,5 +1,7 @@
 #include "DataBase.hpp"
 #include <algorithm>
+#include <typeinfo>
+#include <typeindex>
 
 void DataBase::addNewRecord(Record* r)
 {
@@ -11,25 +13,36 @@ void DataBase::displayRecordList()
     std::cout << "BAZA DANYCH:" << std::endl;
     for (int i = 0; i < dataBase.size(); ++i) {
         std::cout << i+1 << ". ";
-        dataBase.at(i)->getInfo();
+        dataBase.at(i)->showAll();
     }
 }
 
-
-/*void DataBase::sortStudentsByIndex()
+void DataBase::sortStudentsByIndex()
 {
     std::vector<Student> students;
     std::vector<Employee> employees;
     std::vector<Record*> buffer;
 
+    std::sort(dataBase.begin(), dataBase.end(), [](const Record* p1, const Record* p2) {
+        return std::type_index(typeid(*p1)) < std::type_index(typeid(*p2));
+    });
+
+    int boundaryIndex = 0;  // od tego elementu zaczyna sie typ Employee
     for (int i = 0; i < dataBase.size(); ++i) {
-        if (dataBase.at(i)->getInfo() == 1)
-            students.push_back(dataBase.at(i));
-        else if (dataBase.at(i)->getInfo() == 2)
-            employees.push_back((dataBase.at(i)));
+       // if (dataBase.at(i)->getInfo() == 1)
+       //     boundaryIndex++;
+      //  else
+          //  break;
     }
 
-    std::sort(std::begin(students.getIndex()), std::end(students.getIndex()),
+  //  for (int i = 0; i < dataBase.size(); ++i) {
+   //     if (dataBase.at(i)->getInfo() == 1)
+      //      students.push_back(dataBase.at(i));
+      //  else if (dataBase.at(i)->getInfo() == 2)
+         //   employees.push_back((dataBase.at(i)));
+  //  }
+
+/*   std::sort(std::begin(students.getIndex()), std::end(students.getIndex()),
               [](const int& a, const int& b) {return a > b});
 
     for (int i = 0; i < students.size(); ++i) {
@@ -48,8 +61,8 @@ void DataBase::displayRecordList()
                 studentBase.at(j) = buff;
             }
         }
-    }
-}/*
+    }*/
+}
 /*
 void DataBase::removeStudentByIndex(uint64_t idx)
 {

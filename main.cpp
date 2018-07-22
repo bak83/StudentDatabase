@@ -1,4 +1,5 @@
 #include <iostream>
+#include <typeinfo>
 #include "DataBase.hpp"
 
 int main()
@@ -13,12 +14,19 @@ int main()
     Employee e2("Roman", "Czarny", 3565);
 
     base.addNewRecord(&s1);
+    base.addNewRecord(&e2);
     base.addNewRecord(&s2);
+    base.addNewRecord(&e1);
     base.addNewRecord(&s3);
     base.addNewRecord(&e1);
-    base.addNewRecord(&e2);
 
     base.displayRecordList();
+
+    base.sortStudentsByIndex();
+
+    base.displayRecordList();
+
+    std::cout<<typeid(e1).name()<<std::endl;
 
    /*
 

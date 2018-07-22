@@ -5,11 +5,10 @@ Employee::Employee(std::string n, std::string s, int sal):
 
 int Employee::getSalary() const { return salary; }
 
-int Employee::getInfo()
+void Employee::showAll()
 {
     std::cout << getName() << "  "
               << getSurname() << "  "
               << getSalary() << " PLN" << std::endl;
 
-    return 2;   // metoda pracownika
 }

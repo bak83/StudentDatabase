@@ -5,11 +5,10 @@ Student::Student(std::string n, std::string s, int i):
 
 int Student::getIndex() const { return index; }
 
-int Student::getInfo()
+void Student::showAll()
 {
     std::cout << getName() << "  "
               << getSurname() << "  "
               << getIndex() << std::endl;
 
-    return 1; // metoda Studenta
 }

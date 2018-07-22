@@ -15,6 +15,6 @@ public:
     std::string getName() const;
     std::string getSurname() const;
 
-    virtual int getInfo() = 0;
+    virtual void showAll() = 0;
 
 };
