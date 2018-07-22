@@ -18,6 +18,7 @@ int main()
     base.addNewRecord(&s2);
     base.addNewRecord(&e1);
     base.addNewRecord(&s3);
+    base.addNewRecord(&e1);
 
     base.displayRecordList();
 
@@ -25,6 +26,7 @@ int main()
 
     base.displayRecordList();
 
+    std::cout<<typeid(e1).name()<<std::endl;
 
    /*
 
