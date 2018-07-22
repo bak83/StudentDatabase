@@ -27,7 +27,7 @@ void DataBase::sortStudentsByIndex()
         return std::type_index(typeid(*p1)) < std::type_index(typeid(*p2));
     });
 
-    int boundaryIndex = 0;  // od tego elementu zaczyna sie typ Employee
+    int boundaryIndex = 0;  // od tego elementu w bazie zaczyna sie typ Employee
     for (int i = 0; i < dataBase.size(); ++i) {
         if (dataBase.at(i)->getId() == 1)
             boundaryIndex++;
@@ -35,33 +35,10 @@ void DataBase::sortStudentsByIndex()
             break;
     }
 
-  //  for (int i = 0; i < dataBase.size(); ++i) {
-   //     if (dataBase.at(i)->getInfo() == 1)
-      //      students.push_back(dataBase.at(i));
-      //  else if (dataBase.at(i)->getInfo() == 2)
-         //   employees.push_back((dataBase.at(i)));
-  //  }
-
-/*   std::sort(std::begin(students.getIndex()), std::end(students.getIndex()),
-              [](const int& a, const int& b) {return a > b});
-
-    for (int i = 0; i < students.size(); ++i) {
-        buffer.at(i) = students.at(i);
-    }
-    for (int i = students.size(); i < dataBase.size(); ++i) {
-        buffer.at(i)
-    }
-
-    for (int i = 1; i < studentBase.size(); ++i) {
-        for (int j = studentBase.size()-1; j >= 1; j--) {
-            if (studentBase.at(j).getIndex() < studentBase.at(j-1).getIndex()) {
-                Student buff;
-                buff = studentBase.at(j-1);
-                studentBase.at(j-1) = studentBase.at(j);
-                studentBase.at(j) = buff;
-            }
-        }
-    }*/
+    std::sort(dataBase.begin(), dataBase.begin()+boundaryIndex,
+              [](Record* p1, Record* p2) {
+        return dynamic_cast<Student*>(p1) > dynamic_cast<Student*>(p2);
+    });
 }
 /*
 void DataBase::removeStudentByIndex(uint64_t idx)
