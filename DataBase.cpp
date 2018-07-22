@@ -32,7 +32,7 @@ void DataBase::sortStudentsByIndex()
     }
 
     std::sort(dataBase.begin(), dataBase.begin()+boundaryIndex, [](Record* p1, Record* p2) {
-        return dynamic_cast<Student*>(p1) > dynamic_cast<Student*>(p2);
+        return dynamic_cast<Student*>(p1)->getIndex() < dynamic_cast<Student*>(p2)->getIndex();
     });
 }
 
