@@ -19,6 +19,10 @@ int main()
     base.addNewRecord(&e2);
 
     base.displayRecordList();
+    
+    std::ifstream file {""};
+    std::cout<<file.rdbuf();
+
 
    /*
 
