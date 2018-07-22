@@ -17,7 +17,7 @@ void DataBase::displayRecordList()
     }
 }
 
-int DataBase::sortStudentsByIndex()
+void DataBase::sortStudentsByIndex()
 {
     std::sort(dataBase.begin(), dataBase.end(), [](const Record* p1, const Record* p2) {
         return std::type_index(typeid(*p1)) < std::type_index(typeid(*p2));
@@ -34,16 +34,14 @@ int DataBase::sortStudentsByIndex()
     std::sort(dataBase.begin(), dataBase.begin()+boundaryIndex, [](Record* p1, Record* p2) {
         return dynamic_cast<Student*>(p1) > dynamic_cast<Student*>(p2);
     });
-
-    return boundaryIndex;
 }
 
 void DataBase::removeStudentByIndex(int idx)
 {
-    int boundaryIndex = sortStudentsByIndex();
+    for (int i = 0; i < dataBase.size(); ++i) {
+        if (dataBase.at(i)->getId() == 1 &&
+                dynamic_cast<Student*>(dataBase.at(i))->getIndex() == idx) {
 
-    for (int i = 0; i < boundaryIndex; ++i) {
-        if (dynamic_cast<Student*>(dataBase.at(i))->getIndex() == idx) {
             dataBase.erase(dataBase.begin()+i);
             break;
         }
