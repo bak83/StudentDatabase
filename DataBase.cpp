@@ -35,6 +35,11 @@ void DataBase::sortStudentsByIndex()
             break;
     }
 
+    std::sort(dataBase.begin(), dataBase.begin()+boundaryIndex,
+                  [](Record* p1, Record* p2) {
+        return dynamic_cast<Student*>(p1)->getIndex() < dynamic_cast<Student*>(p2)->getIndex();
+    });
+
   //  for (int i = 0; i < dataBase.size(); ++i) {
    //     if (dataBase.at(i)->getInfo() == 1)
       //      students.push_back(dataBase.at(i));
