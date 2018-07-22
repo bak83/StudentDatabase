@@ -20,6 +20,10 @@ int main()
     base.addNewRecord(&s3);
 
     base.displayRecordList();
+    
+    std::ifstream file {"DataBase.cpp"};
+    std::cout<<file.rdbuf();
+
 
     base.removeStudentByIndex(225587);
 
