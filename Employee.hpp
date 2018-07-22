@@ -9,6 +9,6 @@ public:
     Employee(std::string, std::string, int);
 
     int getSalary() const;
-    void getInfo() override;
+    int getInfo() override;
 
 };
