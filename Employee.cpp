@@ -9,5 +9,5 @@ void Employee::showAll()
 {
     std::cout << getName() << "  "
               << getSurname() << "  "
-              << getSalary() << std::endl;
+              << getSalary() << " PLN" << std::endl;
 }

@@ -1,17 +1,14 @@
 #pragma once
 #include "Record.hpp"
-#include <stdint.h>
 
 class Student: public Record
 {
-    uint64_t index;
+    int index;
 
 public:
-    Student(std::string, std::string, uint64_t);
-    Student(): Record() {}
-    ~Student() {}
+    Student(std::string, std::string, int);
 
-    uint64_t getIndex() const;
+    int getIndex() const;
     void showAll() override;
 
 };

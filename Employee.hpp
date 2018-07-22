@@ -7,8 +7,6 @@ class Employee: public Record
 
 public:
     Employee(std::string, std::string, int);
-    Employee(): Record() {}
-    ~Employee() {}
 
     int getSalary() const;
     void showAll() override;

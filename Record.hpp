@@ -11,8 +11,6 @@ class Record
 
 public:
     Record(std::string, std::string);
-    Record() {}
-    ~Record() {}
 
     std::string getName() const;
     std::string getSurname() const;
