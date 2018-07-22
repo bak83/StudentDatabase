@@ -16,5 +16,6 @@ public:
     std::string getSurname() const;
 
     virtual void showAll() = 0;
+    virtual int getId() = 0;
 
 };

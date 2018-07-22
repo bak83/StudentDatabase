@@ -12,3 +12,5 @@ void Employee::showAll()
               << getSalary() << " PLN" << std::endl;
 
 }
+
+int Employee::getId() { return 2; }

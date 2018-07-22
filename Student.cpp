@@ -12,3 +12,5 @@ void Student::showAll()
               << getIndex() << std::endl;
 
 }
+
+int Student::getId() {return 1; }

@@ -10,5 +10,6 @@ public:
 
     int getSalary() const;
     void showAll() override;
+    int getId() override;
 
 };

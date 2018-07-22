@@ -10,5 +10,6 @@ public:
 
     int getIndex() const;
     void showAll() override;
+    int getId() override;
 
 };

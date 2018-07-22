@@ -29,10 +29,10 @@ void DataBase::sortStudentsByIndex()
 
     int boundaryIndex = 0;  // od tego elementu zaczyna sie typ Employee
     for (int i = 0; i < dataBase.size(); ++i) {
-       // if (dataBase.at(i)->getInfo() == 1)
-       //     boundaryIndex++;
-      //  else
-          //  break;
+        if (dataBase.at(i)->getId() == 1)
+            boundaryIndex++;
+        else
+            break;
     }
 
   //  for (int i = 0; i < dataBase.size(); ++i) {
