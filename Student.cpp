@@ -5,7 +5,7 @@ Student::Student(std::string n, std::string s, int i):
 
 int Student::getIndex() const { return index; }
 
-void Student::showAll()
+void Student::getInfo()
 {
     std::cout << getName() << "  "
               << getSurname() << "  "

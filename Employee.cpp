@@ -5,7 +5,7 @@ Employee::Employee(std::string n, std::string s, int sal):
 
 int Employee::getSalary() const { return salary; }
 
-void Employee::showAll()
+void Employee::getInfo()
 {
     std::cout << getName() << "  "
               << getSurname() << "  "

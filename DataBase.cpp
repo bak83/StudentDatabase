@@ -10,7 +10,7 @@ void DataBase::displayRecordList()
     std::cout << "BAZA DANYCH:" << std::endl;
     for (int i = 0; i < dataBase.size(); ++i) {
         std::cout << i+1 << ". ";
-        dataBase.at(i)->showAll();
+        dataBase.at(i)->getInfo();
     }
 }
 
@@ -27,8 +27,8 @@ void DataBase::displayRecordList()
             }
         }
     }
-}
-
+}*/
+/*
 void DataBase::removeStudentByIndex(uint64_t idx)
 {
     for (int i = 0; i < studentBase.size(); ++i) {

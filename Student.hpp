@@ -9,6 +9,6 @@ public:
     Student(std::string, std::string, int);
 
     int getIndex() const;
-    void showAll() override;
+    void getInfo() override;
 
 };
