@@ -11,11 +11,16 @@ void DataBase::saveToFile()
     std::fstream file;
     file.open("Base.txt", std::ios::out);
 
-    for (int i = 0; i < dataBase.size(); ++i)
-    {
-
-        file << dataBase[i] -> getName() << " " << dataBase[i] -> getSurname() << std::endl;
-
+    std::cout << "BAZA DANYCH (plik):" << std::endl;
+    for (int i = 0; i < dataBase.size(); ++i) {
+        file << i+1 << ". " << dataBase[i] -> getName() << "  "
+             << dataBase[i] -> getSurname() << "  ";
+        if (dataBase.at(i)->getId() == 1) {
+            file << dynamic_cast<Student*>(dataBase.at(i))->getIndex() << std::endl;
+        }
+        else if (dataBase.at(i)->getId() == 2) {
+            file << dynamic_cast<Employee*>(dataBase.at(i))->getSalary() << " PLN" << std::endl;
+        }
     }
 
     file.close();
