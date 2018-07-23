@@ -16,7 +16,8 @@ void DataBase::saveToFile()
         file << i+1 << ". " << dataBase[i] -> getName() << "  "
              << dataBase[i] -> getSurname() << "  ";
         if (dataBase.at(i)->getId() == 1) {
-            file << dynamic_cast<Student*>(dataBase.at(i))->getIndex() << std::endl;
+            file << dynamic_cast<Student*>(dataBase.at(i))->getIndex()
+                 << dynamic_cast<Student*>(dataBase.at(i))->getGpa() << std::endl;
         }
         else if (dataBase.at(i)->getId() == 2) {
             file << dynamic_cast<Employee*>(dataBase.at(i))->getSalary() << std::endl;

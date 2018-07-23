@@ -10,9 +10,9 @@ int main()
 {
     DataBase base;
 
-    Student s1("Adam", "Malysz", 234398);
-    Student s2("Tadeusz", "Bocian", 225587);
-    Student s3("Monika", "Czajkowska", 223509);
+    Student s1("Adam", "Malysz", 234398, 3.85);
+    Student s2("Tadeusz", "Bocian", 225587, 4.93);
+    Student s3("Monika", "Czajkowska", 223509, 4.06);
 
     Employee e1("Elzbieta", "Krol", 3740);
     Employee e2("Roman", "Czarny", 3565);
