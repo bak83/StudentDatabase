@@ -13,10 +13,10 @@ void DataBase::saveToFile()
 
     std::cout << "BAZA DANYCH (plik):" << std::endl;
     for (int i = 0; i < dataBase.size(); ++i) {
-        file << i+1 << ". " << dataBase[i] -> getName() << "  "
-             << dataBase[i] -> getSurname() << "  ";
+        file << dataBase[i] -> getName() << ","
+             << dataBase[i] -> getSurname() << ",";
         if (dataBase.at(i)->getId() == 1) {
-            file << dynamic_cast<Student*>(dataBase.at(i))->getIndex()
+            file << dynamic_cast<Student*>(dataBase.at(i))->getIndex() << ","
                  << dynamic_cast<Student*>(dataBase.at(i))->getGpa() << std::endl;
         }
         else if (dataBase.at(i)->getId() == 2) {
