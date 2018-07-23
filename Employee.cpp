@@ -9,7 +9,7 @@ void Employee::showAll()
 {
     std::cout << getName() << "  "
               << getSurname() << "  "
-              << getSalary() << " PLN" << std::endl;
+              << getSalary() << std::endl;
 
 }
 

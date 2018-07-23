@@ -19,7 +19,7 @@ void DataBase::saveToFile()
             file << dynamic_cast<Student*>(dataBase.at(i))->getIndex() << std::endl;
         }
         else if (dataBase.at(i)->getId() == 2) {
-            file << dynamic_cast<Employee*>(dataBase.at(i))->getSalary() << " PLN" << std::endl;
+            file << dynamic_cast<Employee*>(dataBase.at(i))->getSalary() << std::endl;
         }
     }
 
