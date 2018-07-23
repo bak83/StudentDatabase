@@ -3,7 +3,6 @@
 #include <iostream>
 #include <string>
 
-
 class Record
 {
     std::string name;
@@ -17,5 +16,4 @@ public:
 
     virtual void showAll() = 0;
     virtual int getId() = 0;
-
 };

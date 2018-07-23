@@ -1,4 +1,5 @@
 #pragma once
+
 #include "Record.hpp"
 
 class Student: public Record
@@ -11,7 +12,7 @@ public:
 
     int getIndex() const;
     float getGpa() const;
+
     void showAll() override;
     int getId() override;
-
 };

@@ -1,10 +1,10 @@
 #include "DataBase.hpp"
+
 #include <algorithm>
 #include <typeinfo>
 #include <typeindex>
 #include <fstream>
 #include <cstdlib>
-
 
 void DataBase::saveToFile()
 {
@@ -36,7 +36,6 @@ void DataBase::loadFile()
         std::cout << line << std::endl;
     file.close();
 }
-
 
 void DataBase::addNewRecord(Record* r)
 {

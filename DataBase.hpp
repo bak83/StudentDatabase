@@ -18,5 +18,4 @@ class DataBase
     void sortStudentsByIndex();
     void sortBySurname();
     void removeStudentByIndex(int);
-
 };

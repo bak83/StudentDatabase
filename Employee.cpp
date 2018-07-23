@@ -10,7 +10,6 @@ void Employee::showAll()
     std::cout << getName() << "  "
               << getSurname() << "  "
               << getSalary() << std::endl;
-
 }
 
 int Employee::getId() { return 2; }

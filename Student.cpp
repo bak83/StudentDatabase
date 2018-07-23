@@ -13,7 +13,6 @@ void Student::showAll()
               << getSurname() << "  "
               << getIndex() << "  "
               << getGpa() << std::endl;
-
 }
 
 int Student::getId() { return 1; }

@@ -1,11 +1,7 @@
-#include <iostream>
-#include <typeinfo>
-#include <iterator>
-#include <algorithm>
 #include "DataBase.hpp"
-#include <typeindex>
-#include <fstream>
-#include <cstdlib>
+
+#include <iostream>
+
 int main()
 {
     DataBase base;
