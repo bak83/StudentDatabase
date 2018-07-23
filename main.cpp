@@ -32,14 +32,14 @@ int main()
     base.sortStudentsByIndex();
 
     base.displayRecordList();
+
+    base.sortBySurname();
+
+    base.displayRecordList();
     
     base.saveToFile();
 
     base.loadFile();
 
-    std::string a[] = {"Malysz","Bocian","Czajkowska","Krol","Kral"};//tutaj wpis wyrazy , 
-
-    std::sort(std::begin(a), std::end(a), std::locale("en_US.utf8")); // sortowanie 
-    for(auto& s: a) std::cout << s << ' ';
     return 0;
 }

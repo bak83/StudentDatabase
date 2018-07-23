@@ -16,6 +16,7 @@ class DataBase
     void saveToFile();
     void loadFile();
     void sortStudentsByIndex();
+    void sortBySurname();
     void removeStudentByIndex(int);
 
 };

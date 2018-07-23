@@ -65,6 +65,13 @@ void DataBase::sortStudentsByIndex()
     });
 }
 
+void DataBase::sortBySurname()
+{
+    std::sort(dataBase.begin(), dataBase.end(), [](Record* p1, Record* p2) {
+       return p1->getSurname() < p2->getSurname();
+    });
+}
+
 void DataBase::removeStudentByIndex(int idx)
 {
     for (int i = 0; i < dataBase.size(); ++i) {
