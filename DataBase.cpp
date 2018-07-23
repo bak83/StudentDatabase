@@ -55,7 +55,7 @@ void DataBase::sortStudentsByIndex()
 {
     std::sort(dataBase.begin(), dataBase.end(), [](const Record* p1, const Record* p2) {
         return std::type_index(typeid(*p1)) < std::type_index(typeid(*p2));
-    });
+    }); // oddzielenie studentow od pracownikow (studenci na gorze)
 
     int boundaryIndex = 0;  // od tego elementu w bazie zaczyna sie typ Employee
     for (int i = 0; i < dataBase.size(); ++i) {
