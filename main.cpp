@@ -1,7 +1,11 @@
 #include <iostream>
 #include <typeinfo>
+#include <iterator>
+#include <algorithm>
 #include "DataBase.hpp"
-
+#include <typeindex>
+#include <fstream>
+#include <cstdlib>
 int main()
 {
     DataBase base;
@@ -33,6 +37,9 @@ int main()
 
     base.loadFile();
 
+    std::string a[] = {"Malysz","Bocian","Czajkowska","Krol","Kral"};//tutaj wpis wyrazy , 
 
+    std::sort(std::begin(a), std::end(a), std::locale("en_US.utf8")); // sortowanie 
+    for(auto& s: a) std::cout << s << ' ';
     return 0;
 }
