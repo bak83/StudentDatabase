@@ -11,13 +11,23 @@ void DataBase::saveToFile()
     std::fstream file;
     file.open("Base.txt", std::ios::out);
 
-    for (int i = 0; i < dataBase.size(); ++i) {
-        //file.write(reinterpret_cast<char*>(dataBase->data()), sizeof(dataBase));
+    for (int i = 0; i < dataBase.size(); ++i)
+    {
+
         file << dataBase[i] -> getName() << " " << dataBase[i] -> getSurname() << std::endl;
-       // file << dataBase[i] -> getSurname() << std::endl;
-       // file << dataBase[i] -> getIndex() << std::endl;
+
     }
 
+    file.close();
+}
+
+void DataBase::loadFile()
+{
+    std::fstream file;
+    std::string line;
+    file.open("Base.txt", std::ios::in);
+    while (getline(file,line))
+        std::cout << line << std::endl;
     file.close();
 }
 

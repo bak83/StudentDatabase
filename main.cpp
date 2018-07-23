@@ -31,6 +31,8 @@ int main()
     
     base.saveToFile();
 
+    base.loadFile();
+
 
     return 0;
 }
