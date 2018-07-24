@@ -64,7 +64,6 @@ void DataBase::saveToFile()
     std::fstream file;
     file.open("Base.txt", std::ios::out);
 
-    std::cout << "BAZA DANYCH (plik):" << std::endl;
     for (int i = 0; i < dataBase.size(); ++i) {
         if (dataBase.at(i)->getId() == 1) {
             file << "S" << "," << dataBase[i]->getName() << ","
@@ -86,6 +85,7 @@ void DataBase::loadFile()
 {
     std::fstream file;
     file.open("Base.txt", std::ios::in);
+    std::vector<Record*> fileDataBase;  // baza danych tylko z pliku
 
     std::string line;
     std::string indivString;
@@ -102,26 +102,26 @@ void DataBase::loadFile()
             float gpaNum = std::stof(strVec[4]);
             Student* studentPtr = new Student(strVec[1], strVec[2], indexNum, gpaNum);
             addNewRecord(studentPtr);
+            fileDataBase.push_back(studentPtr);
         }
         if (strVec[0] == "E") {
             int salaryNum = std::stoi(strVec[3]);
             Employee* employeePtr = new Employee(strVec[1], strVec[2], salaryNum);
             addNewRecord(employeePtr);
+            fileDataBase.push_back(employeePtr);
         }
         strVec.clear();
     }
 
     file.close();
-    std::cout << "aaa" <<std::endl;
-    displayRecordList();
+    std::cout << "BAZA DANYCH Z PLIKU:" << std::endl;
+    for (int i = 0; i < fileDataBase.size(); ++i) {
+        std::cout << i+1 << ". ";
+        fileDataBase.at(i)->showAll();
+    }
 }
 
-/*void DataBase::loadFile()
+Record* DataBase::getRecord(size_t position) const
 {
-    std::fstream file;
-    std::string line;
-    file.open("Base.txt", std::ios::in);
-    while (getline(file,line))
-        std::cout << line << std::endl;
-    file.close();
-}*/
+    return dataBase[position];
+}

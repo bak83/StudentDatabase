@@ -18,4 +18,5 @@ class DataBase
     void sortStudentsByIndex();
     void sortBySurname();
     void removeStudentByIndex(int);
+    Record* getRecord(size_t) const;
 };
