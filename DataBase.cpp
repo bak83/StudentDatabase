@@ -5,37 +5,7 @@
 #include <typeindex>
 #include <fstream>
 #include <cstdlib>
-
-void DataBase::saveToFile()
-{
-    std::fstream file;
-    file.open("Base.txt", std::ios::out);
-
-    std::cout << "BAZA DANYCH (plik):" << std::endl;
-    for (int i = 0; i < dataBase.size(); ++i) {
-        file << dataBase[i] -> getName() << ","
-             << dataBase[i] -> getSurname() << ",";
-        if (dataBase.at(i)->getId() == 1) {
-            file << dynamic_cast<Student*>(dataBase.at(i))->getIndex() << ","
-                 << dynamic_cast<Student*>(dataBase.at(i))->getGpa() << std::endl;
-        }
-        else if (dataBase.at(i)->getId() == 2) {
-            file << dynamic_cast<Employee*>(dataBase.at(i))->getSalary() << std::endl;
-        }
-    }
-
-    file.close();
-}
-
-void DataBase::loadFile()
-{
-    std::fstream file;
-    std::string line;
-    file.open("Base.txt", std::ios::in);
-    while (getline(file,line))
-        std::cout << line << std::endl;
-    file.close();
-}
+#include <sstream>
 
 void DataBase::addNewRecord(Record* r)
 {
@@ -88,3 +58,70 @@ void DataBase::removeStudentByIndex(int idx)
         }
     }
 }
+
+void DataBase::saveToFile()
+{
+    std::fstream file;
+    file.open("Base.txt", std::ios::out);
+
+    std::cout << "BAZA DANYCH (plik):" << std::endl;
+    for (int i = 0; i < dataBase.size(); ++i) {
+        if (dataBase.at(i)->getId() == 1) {
+            file << "S" << "," << dataBase[i]->getName() << ","
+                 << dataBase[i]->getSurname() << ","
+                 << dynamic_cast<Student*>(dataBase.at(i))->getIndex() << ","
+                 << dynamic_cast<Student*>(dataBase.at(i))->getGpa() << std::endl;
+        }
+        else if (dataBase.at(i)->getId() == 2) {
+            file << "E" << "," << dataBase[i]->getName() << ","
+                 << dataBase[i]->getSurname() << ","
+                 << dynamic_cast<Employee*>(dataBase.at(i))->getSalary() << std::endl;
+        }
+    }
+
+    file.close();
+}
+
+void DataBase::loadFile()
+{
+    std::fstream file;
+    file.open("Base.txt", std::ios::in);
+
+    std::string line;
+    std::string indivString;
+    char separator = ',';
+    std::vector<std::string> strVec;
+
+    while (std::getline(file, line)) {
+        std::stringstream ss(line);
+        while (std::getline(ss, indivString, separator)) {
+            strVec.push_back(indivString);
+        }
+        if (strVec[0] == "S") {
+            int indexNum = std::stoi(strVec[3]);
+            float gpaNum = std::stof(strVec[4]);
+            Student* studentPtr = new Student(strVec[1], strVec[2], indexNum, gpaNum);
+            addNewRecord(studentPtr);
+        }
+        if (strVec[0] == "E") {
+            int salaryNum = std::stoi(strVec[3]);
+            Employee* employeePtr = new Employee(strVec[1], strVec[2], salaryNum);
+            addNewRecord(employeePtr);
+        }
+        strVec.clear();
+    }
+
+    file.close();
+    std::cout << "aaa" <<std::endl;
+    displayRecordList();
+}
+
+/*void DataBase::loadFile()
+{
+    std::fstream file;
+    std::string line;
+    file.open("Base.txt", std::ios::in);
+    while (getline(file,line))
+        std::cout << line << std::endl;
+    file.close();
+}*/
