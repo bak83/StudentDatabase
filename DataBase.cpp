@@ -85,6 +85,12 @@ void DataBase::loadFile()
 {
     std::fstream file;
     file.open("Base.txt", std::ios::in);
+
+    if (file.good() == false)
+    {
+        std::cout << "File not exist" << std::endl;
+        exit(0);
+    }
     std::vector<Record*> fileDataBase;  // baza danych tylko z pliku
 
     std::string line;
