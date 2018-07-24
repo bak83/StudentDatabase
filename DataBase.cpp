@@ -104,7 +104,7 @@ void DataBase::loadFile()
             addNewRecord(studentPtr);
             fileDataBase.push_back(studentPtr);
         }
-        if (strVec[0] == "E") {
+        else if (strVec[0] == "E") {
             int salaryNum = std::stoi(strVec[3]);
             Employee* employeePtr = new Employee(strVec[1], strVec[2], salaryNum);
             addNewRecord(employeePtr);
