@@ -1,0 +1,4 @@
+S,Monika,Czajkowska,223509,4.06
+E,Roman,Czarny,3565
+E,Elzbieta,Krol,3740
+S,Adam,Malysz,234398,3.85
