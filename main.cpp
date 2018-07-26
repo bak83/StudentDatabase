@@ -33,9 +33,12 @@ int main()
 
     base.displayRecordList();
     
-    base.saveToFile();
+    base.saveToFile();  // zapisz zawartosc bazy 'base' do pliku
 
-    base.loadFile();
+    DataBase fileBase;  // utworz nowa baze
+
+    fileBase.loadFile();    // wczytaj rekordy z pliku do nowej bazy
+    fileBase.displayRecordList();   // wyswietl rekorody z pliku
 
     return 0;
 }
