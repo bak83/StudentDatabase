@@ -38,10 +38,8 @@ void DataBase::sortBySurname()
 void DataBase::removeStudentByIndex(int idx)
 {
     for (int i = 0; i < dataBase.size(); ++i) {
-        if (dataBase.at(i)->getId() == 1 &&
-                dynamic_cast<Student*>(dataBase.at(i))->getIndex() == idx) {
-
-            dataBase.erase(dataBase.begin()+i);
+        if (dataBase[i]->getIndex() < NO_MATCH && dataBase[i]->getIndex() == idx) {
+            dataBase.erase(dataBase.begin() + i);
             break;
         }
     }
@@ -56,7 +54,8 @@ void DataBase::saveToFile()
         if (dataBase[i]->getIndex() < NO_MATCH) {
             file << "S" << "," << dataBase[i]->getName() << ","
                  << dataBase[i]->getSurname() << ","
-                 << dataBase[i]->getIndex() << std::endl;
+                 << dataBase[i]->getIndex() << ","
+                 << dataBase[i]->getGpa() << std::endl;
         }
         else if (dataBase[i]->getSalary() < NO_MATCH) {
             file << "E" << "," << dataBase[i]->getName() << ","

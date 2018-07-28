@@ -21,23 +21,23 @@ int main()
 
     base.displayRecordList();
 
-  /*  base.removeStudentByIndex(225587);
-
-    base.displayRecordList(); */
-
     base.sortStudentsByIndex();
+
+    base.displayRecordList();   
+
+    base.removeStudentByIndex(225587);
 
     base.displayRecordList();
 
- //   base.sortBySurname();
+    base.sortBySurname();
 
- //   base.displayRecordList();
+    base.displayRecordList();
     
     base.saveToFile();  // zapisz zawartosc bazy 'base' do pliku
 
- //   DataBase fileBase;  // utworz nowa baze
+    DataBase fileBase;  // utworz nowa baze
 
- //   fileBase.loadFile();    // wczytaj rekordy z pliku do nowej bazy
+  //  fileBase.loadFile();    // wczytaj rekordy z pliku do nowej bazy
  //   fileBase.displayRecordList();   // wyswietl rekorody z pliku
 
     return 0;
