@@ -8,7 +8,8 @@ Employee::Employee(std::string n, std::string s, gender_t g, uint64_t p,
 
 int Employee::getSalary() const { return salary; }
 
-void Employee::showAll() {
+void Employee::showAll()
+{
   std::cout << std::right << std::setw(13) << getName();
   std::cout << std::right << std::setw(13) << getSurname();
   std::cout << std::right << std::setw(9) << getSalary();

@@ -8,7 +8,8 @@ Student::Student(std::string n, std::string s, gender_t ge, uint64_t p,
 
 int Student::getIndex() const { return index; }
 
-void Student::showAll() {
+void Student::showAll()
+{
   std::cout << std::right << std::setw(13) << getName();
   std::cout << std::right << std::setw(13) << getSurname();
   std::cout << std::right << std::setw(9) << getIndex();
