@@ -58,13 +58,11 @@ void DataBase::saveToFile() {
 
   for (int i = 0; i < dataBase.size(); ++i) {
     if (dataBase[i]->getIndex() < NO_MATCH) {
-      file << "S"
-           << "," << dataBase[i]->getName() << "," << dataBase[i]->getSurname()
-           << "," << dataBase[i]->getIndex() << std::endl;
+      file << "S" << ":" << dataBase[i]->getName() << ":" << dataBase[i]->getSurname()
+           << ":" << dataBase[i]->getIndex() << std::endl;
     } else if (dataBase[i]->getSalary() < NO_MATCH) {
-      file << "E"
-           << "," << dataBase[i]->getName() << "," << dataBase[i]->getSurname()
-           << "," << dataBase[i]->getSalary() << std::endl;
+      file << "E" << ":" << dataBase[i]->getName() << ":" << dataBase[i]->getSurname()
+           << ":" << dataBase[i]->getSalary() << std::endl;
     } else {
       std::cout << "Blad zapisu do pliku" << std::endl;
     }
@@ -84,7 +82,7 @@ void DataBase::loadFile() {
 
   std::string line;
   std::string indivString;
-  char separator = ',';
+  char separator = ':';
   std::vector<std::string> strVec;
 
   while (std::getline(file, line)) {

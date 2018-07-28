@@ -10,6 +10,7 @@ struct address_t {
   std::string city;
   std::string street;
   int number;
+  void displayAddress() { std::cout << city << ", " << street << " " << number; }
 };
 
 enum gender_t { female, male };
@@ -27,9 +28,9 @@ public:
   std::string getName() const;
   std::string getSurname() const;
   uint64_t getPESEL() const;
+  address_t getAddress() const;
 
   virtual void showAll() = 0;
-  virtual int getId() = 0;
 
   ///////////////////////////////
   virtual int getIndex() const = 0;

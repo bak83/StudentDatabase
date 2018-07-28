@@ -11,7 +11,6 @@ public:
   int getSalary() const;
 
   void showAll() override;
-  int getId() override;
 
   ///////////////////////////////
   virtual int getIndex() const { return NO_MATCH; }
