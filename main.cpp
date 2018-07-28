@@ -5,7 +5,7 @@
 int main() {
   DataBase base;
 
-  Student *s1 = new Student("Adam", "Malysz", male, 12345678912,
+  Student *s1 = new Student("Adam", "Malysz", male, 95021507375,
                             {"Wroclaw", "Miodowa", 4}, 234398);
   Student *s2 = new Student("Tadeusz", "Bocian", male, 12345678913,
                             {"Warszawa", "Cebulowa", 12}, 225587);
@@ -30,12 +30,13 @@ int main() {
   base.displayRecordList();
 
   base.removeStudentByIndex(225587);
-
+  base.removeStudentByPESEL(95021507375);
   base.displayRecordList();
 
   base.sortBySurname();
-
+ base.sortByPESEL();
   base.displayRecordList();
+  base.validatePESEL(95021507375);
 
   delete s1, s2, s3, e1, e2;
 
