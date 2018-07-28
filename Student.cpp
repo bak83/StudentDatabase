@@ -2,17 +2,17 @@
 
 #include <iomanip>
 
-Student::Student(std::string n, std::string s, int i):
-    Record(n, s), index(i) {}
+Student::Student(std::string n, std::string s, gender_t ge, uint64_t p,
+                 address_t a, int i)
+    : Record(n, s, ge, p, a), index(i) {}
 
 int Student::getIndex() const { return index; }
 
-void Student::showAll()
-{
-    std::cout << std::right << std::setw(13) << getName();
-    std::cout << std::right << std::setw(13) << getSurname();
-    std::cout << std::right << std::setw(9) << getIndex();
-    std::cout << std::endl;
+void Student::showAll() {
+  std::cout << std::right << std::setw(13) << getName();
+  std::cout << std::right << std::setw(13) << getSurname();
+  std::cout << std::right << std::setw(9) << getIndex();
+  std::cout << std::endl;
 }
 
 int Student::getId() { return 1; }
