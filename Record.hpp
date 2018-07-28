@@ -29,7 +29,6 @@ public:
   uint64_t getPESEL() const;
 
   virtual void showAll() = 0;
-  virtual int getId() = 0;
 
   ///////////////////////////////
   virtual int getIndex() const = 0;

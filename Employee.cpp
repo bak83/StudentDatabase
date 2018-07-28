@@ -15,5 +15,3 @@ void Employee::showAll()
   std::cout << std::right << std::setw(9) << getSalary();
   std::cout << std::endl;
 }
-
-int Employee::getId() { return 2; }

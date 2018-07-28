@@ -15,5 +15,3 @@ void Student::showAll()
   std::cout << std::right << std::setw(9) << getIndex();
   std::cout << std::endl;
 }
-
-int Student::getId() { return 1; }
