@@ -8,7 +8,7 @@ int main()
 
     Student* s1 = new Student("Adam", "Malysz", 234398);
     Student* s2 = new Student("Tadeusz", "Bocian", 225587);
-    Student* s3 = new Student("Monika", "Czajkowska", 223509);
+    Student* s3 = new Student("Maksymilian", "Czajkowski", 223509);
 
     Employee* e1 = new Employee("Elzbieta", "Krol", 3740);
     Employee* e2 = new Employee("Roman", "Czarny", 3565);

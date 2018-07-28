@@ -72,7 +72,7 @@ void DataBase::loadFile()
     file.open("Base.txt", std::ios::in);
 
     if (file.good() == false) {
-        std::cout << "File does not exist" << std::endl;
+        std::cout << "Plik nie istnieje" << std::endl;
         exit(0);
     }
 
