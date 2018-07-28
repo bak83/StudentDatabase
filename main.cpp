@@ -33,5 +33,7 @@ int main()
 
     base.displayRecordList();
 
+    delete s1, s2, s3, e1, e2;
+
     return 0;
 }
