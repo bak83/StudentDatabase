@@ -54,8 +54,7 @@ void DataBase::saveToFile()
         if (dataBase[i]->getIndex() < NO_MATCH) {
             file << "S" << "," << dataBase[i]->getName() << ","
                  << dataBase[i]->getSurname() << ","
-                 << dataBase[i]->getIndex() << ","
-                 << dataBase[i]->getGpa() << std::endl;
+                 << dataBase[i]->getIndex() << std::endl;
         }
         else if (dataBase[i]->getSalary() < NO_MATCH) {
             file << "E" << "," << dataBase[i]->getName() << ","
@@ -92,8 +91,7 @@ void DataBase::loadFile()
         }
         if (strVec[0] == "S") {
             int indexNum = std::stoi(strVec[3]);
-            float gpaNum = std::stof(strVec[4]);
-            Student* studentPtr = new Student(strVec[1], strVec[2], indexNum, gpaNum);
+            Student* studentPtr = new Student(strVec[1], strVec[2], indexNum);
             addNewRecord(studentPtr);
         }
         else if (strVec[0] == "E") {

@@ -6,9 +6,9 @@ int main()
 {
     DataBase base;
 
-    Student* s1 = new Student("Adam", "Malysz", 234398, 3.85);
-    Student* s2 = new Student("Tadeusz", "Bocian", 225587, 4.93);
-    Student* s3 = new Student("Monika", "Czajkowska", 223509, 4.06);
+    Student* s1 = new Student("Adam", "Malysz", 234398);
+    Student* s2 = new Student("Tadeusz", "Bocian", 225587);
+    Student* s3 = new Student("Monika", "Czajkowska", 223509);
 
     Employee* e1 = new Employee("Elzbieta", "Krol", 3740);
     Employee* e2 = new Employee("Roman", "Czarny", 3565);

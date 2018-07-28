@@ -5,13 +5,11 @@
 class Student: public Record
 {
     int index;
-    float gpa;
 
 public:
-    Student(std::string, std::string, int, float);
+    Student(std::string, std::string, int);
 
     int getIndex() const;
-    float getGpa() const;
 
     void showAll() override;
     int getId() override;
