@@ -16,4 +16,7 @@ public:
 
     virtual void showAll() = 0;
     virtual int getId() = 0;
+
+    ///////////////////////////////
+    virtual int getIndex() const = 0;
 };

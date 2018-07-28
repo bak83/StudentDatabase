@@ -13,4 +13,7 @@ public:
 
     void showAll() override;
     int getId() override;
+
+    ///////////////////////////////
+    virtual int getIndex() const { return 1000000; }
 };

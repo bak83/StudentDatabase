@@ -21,15 +21,15 @@ int main()
 
     base.displayRecordList();
 
-    base.removeStudentByIndex(225587);
+  /*  base.removeStudentByIndex(225587);
 
-    base.displayRecordList();
+    base.displayRecordList(); */
 
     base.sortStudentsByIndex();
 
     base.displayRecordList();
 
-    base.sortBySurname();
+ /*   base.sortBySurname();
 
     base.displayRecordList();
     
@@ -39,6 +39,6 @@ int main()
 
     fileBase.loadFile();    // wczytaj rekordy z pliku do nowej bazy
     fileBase.displayRecordList();   // wyswietl rekorody z pliku
-
+*/
     return 0;
 }
