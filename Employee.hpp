@@ -15,5 +15,5 @@ public:
     int getId() override;
 
     ///////////////////////////////
-    virtual int getIndex() const { return 1000000; }
+    virtual int getIndex() const { return NO_MATCH; }
 };

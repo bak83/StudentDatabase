@@ -15,4 +15,7 @@ public:
 
     void showAll() override;
     int getId() override;
+
+    ///////////////////////////////
+    virtual int getSalary() const { return NO_MATCH; }
 };

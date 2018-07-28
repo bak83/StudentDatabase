@@ -3,6 +3,8 @@
 #include <iostream>
 #include <string>
 
+#define NO_MATCH 1000000
+
 class Record
 {
     std::string name;
@@ -19,4 +21,5 @@ public:
 
     ///////////////////////////////
     virtual int getIndex() const = 0;
+    virtual int getSalary() const = 0;
 };

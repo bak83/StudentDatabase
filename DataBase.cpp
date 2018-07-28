@@ -53,16 +53,18 @@ void DataBase::saveToFile()
     file.open("Base.txt", std::ios::out);
 
     for (int i = 0; i < dataBase.size(); ++i) {
-        if (dataBase.at(i)->getId() == 1) {
+        if (dataBase[i]->getIndex() < NO_MATCH) {
             file << "S" << "," << dataBase[i]->getName() << ","
                  << dataBase[i]->getSurname() << ","
-                 << dynamic_cast<Student*>(dataBase.at(i))->getIndex() << ","
-                 << dynamic_cast<Student*>(dataBase.at(i))->getGpa() << std::endl;
+                 << dataBase[i]->getIndex() << std::endl;
         }
-        else if (dataBase.at(i)->getId() == 2) {
+        else if (dataBase[i]->getSalary() < NO_MATCH) {
             file << "E" << "," << dataBase[i]->getName() << ","
                  << dataBase[i]->getSurname() << ","
-                 << dynamic_cast<Employee*>(dataBase.at(i))->getSalary() << std::endl;
+                 << dataBase[i]->getSalary() << std::endl;
+        }
+        else {
+            std::cout << "Blad zapisu do pliku" << std::endl;
         }
     }
 
