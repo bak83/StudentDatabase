@@ -2,8 +2,9 @@
 
 #include <iostream>
 #include <string>
+#include <limits>
 
-#define NO_MATCH 1000000
+#define NO_MATCH std::numeric_limits<int>::max()
 
 class Record
 {

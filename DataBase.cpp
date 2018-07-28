@@ -1,10 +1,7 @@
 #include "DataBase.hpp"
 
 #include <algorithm>
-#include <typeinfo>
-#include <typeindex>
 #include <fstream>
-#include <cstdlib>
 #include <sstream>
 
 void DataBase::addNewRecord(Record* r)
