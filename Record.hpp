@@ -26,6 +26,7 @@ class Record {
   uint64_t PESEL;
   address_t address;
   gender_t gender;
+  friend class Generator;
 
 public:
   Record(std::string, std::string, gender_t, uint64_t, address_t);

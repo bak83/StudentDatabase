@@ -15,5 +15,13 @@ void Generator::generateName()
 
     int randNum = rand() % 100 + 1;
 
+    std::string line;
+    int lineNum = 1;
+
+    while (geline(file, line)) {
+        if (lineNum == randNum) {
+            record->set
+        }
+    }
 
 }
