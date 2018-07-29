@@ -23,11 +23,12 @@ void Generator::generateName(int gend)
     std::string line;
     int lineNum = 1;
 
-    while (geline(file, line)) {
+    while (getline(file, line)) {
         if (lineNum == randNum) {
             record->name = line;
             break;
         }
+        lineNum++;
     }
 
     file.close();
@@ -52,11 +53,12 @@ void Generator::generateSurname(int gend)
     std::string line;
     int lineNum = 1;
 
-    while (geline(file, line)) {
+    while (getline(file, line)) {
         if (lineNum == randNum) {
             record->surname = line;
             break;
         }
+        lineNum++;
     }
 
     file.close();
@@ -70,6 +72,62 @@ void Generator::setGender(int gend)
         record->gender = male;
 }
 
+void Generator::generateAddress()
+{
+    std::fstream fileCities;
+    fileCities.open("Cities.txt", std::ios::in);
+
+    if (fileCities.good() == false) {
+        std::cout << "Plik nie istnieje" << std::endl;
+        exit(0);
+    }
+
+    int randNum = rand() % 10 + 1;
+
+    std::string line;
+    int lineNum = 1;
+
+    while (getline(fileCities, line)) {
+        if (lineNum == randNum) {
+            record->address.city = line;
+            break;
+        }
+        lineNum++;
+    }
+
+    fileCities.close();
+
+    std::fstream fileStreets;
+    fileStreets.open("Streets.txt", std::ios::in);
+
+    if (fileStreets.good() == false) {
+        std::cout << "Plik nie istnieje" << std::endl;
+        exit(0);
+    }
+
+    randNum = rand() % 30 + 1;
+    lineNum = 1;
+
+    while (getline(fileStreets, line)) { // ***
+        if (lineNum == randNum) {
+            record->address.street = line;
+            break;
+        }
+        lineNum++;
+    }
+
+    fileStreets.close();
+
+    randNum = rand() % 400 + 1;
+
+    record->address.number = randNum;
+}
+
+void Generator::generatePESEL(int gend)
+{
+
+}
+
 Record* Generator::generateRecord()
 {
     int randGender = rand() % 2;
@@ -77,6 +135,7 @@ Record* Generator::generateRecord()
     generateName(randGender);
     generateSurname(randGender);
     setGender(randGender);
+    generateAddress();
 
     return record;
 }
