@@ -37,6 +37,8 @@ public:
   address_t getAddress() const;
   gender_t getGender() const;
 
+  void setName(std::string);
+
   virtual void showAll() = 0;
 
   ///////////////////////////////

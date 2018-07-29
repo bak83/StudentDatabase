@@ -5,6 +5,8 @@ class Generator
     Record* record;
 
 public:
-    void generateName();
-    void generateSurname();
+    void generateName(int);
+    void generateSurname(int);
+
+    Record* generateRecord();
 };
