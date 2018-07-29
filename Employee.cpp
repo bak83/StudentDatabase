@@ -12,6 +12,12 @@ void Employee::showAll()
 {
   std::cout << std::right << std::setw(13) << getName();
   std::cout << std::right << std::setw(13) << getSurname();
+  std::cout << std::right << std::setw(14) << getPESEL();
+  if (getGender() == 0)
+      std::cout << std::right << std::setw(4) << "K";
+  else if (getGender() == 1)
+      std::cout << std::right << std::setw(4) << "M";
+  std::cout << std::right << std::setw(25) << getAddress().toString();
   std::cout << std::right << std::setw(9) << getSalary();
   std::cout << std::endl;
 }

@@ -34,7 +34,7 @@ int main() {
   base.displayRecordList();
 
   base.sortBySurname();
- base.sortByPESEL();
+  base.sortByPESEL();
   base.displayRecordList();
   base.validatePESEL(95021333356);
 

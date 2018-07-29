@@ -11,11 +11,11 @@ struct address_t {
   std::string city;
   std::string street;
   int number;
-  void displayAddress()
+  std::string toString()
   {
-      std::cout << city << " " << street << std::right << std::setw(11) << " " << number;
+      std::string add = city + ", " + street + " " + std::to_string(number);
+      return add;
   }
-
 };
 
 enum gender_t { female, male };
@@ -34,6 +34,7 @@ public:
   std::string getSurname() const;
   uint64_t getPESEL() const;
   address_t getAddress() const;
+  gender_t getGender() const;
 
   virtual void showAll() = 0;
 

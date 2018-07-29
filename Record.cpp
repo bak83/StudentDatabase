@@ -10,3 +10,5 @@ std::string Record::getSurname() const { return surname; }
 uint64_t Record::getPESEL() const { return PESEL; }
 
 address_t Record::getAddress() const { return address; }
+
+gender_t Record::getGender() const { return gender; }

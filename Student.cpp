@@ -12,11 +12,12 @@ void Student::showAll()
 {
   std::cout << std::right << std::setw(13) << getName();
   std::cout << std::right << std::setw(13) << getSurname();
-  std::cout << std::right << std::setw(9) << getIndex();
   std::cout << std::right << std::setw(14) << getPESEL();
-  std::cout << std::right << std::setw(15);
-  getAddress().displayAddress();
-
-
+  if (getGender() == 0)
+      std::cout << std::right << std::setw(4) << "K";
+  else if (getGender() == 1)
+      std::cout << std::right << std::setw(4) << "M";
+  std::cout << std::right << std::setw(25) << getAddress().toString();
+  std::cout << std::right << std::setw(9) << getIndex();
   std::cout << std::endl;
 }
