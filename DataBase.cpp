@@ -161,14 +161,13 @@ void DataBase::validatePESEL(uint64_t pesel)
     std::cout << "PESEL is incorrect" << std::endl;
 }
 
-Record *DataBase::getRecord(size_t position) const {
-  return dataBase[position];
+Record *DataBase::getRecord(size_t position) const \
+{
+    return dataBase[position];
 }
 /*
 void DataBase::searchRecord()
 {
-
-
     std::string myString ="Adam";
     auto it = std::find_if(dataBase.begin(), dataBase.end(), [&myString](const
 Record& obj) {return obj.getName() == myString;});
