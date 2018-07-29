@@ -48,10 +48,10 @@ void DataBase::removeStudentByIndex(int idx)
   }
 }
 
-void DataBase::removeStudentByPESEL(uint64_t idx)
+void DataBase::removeStudentByPESEL(uint64_t pes)
 {
   for (int i = 0; i < dataBase.size(); ++i) {
-    if (dataBase[i]->getPESEL() < NO_MATCH && dataBase[i]->getPESEL() == idx) {
+    if (dataBase[i]->getPESEL() < NO_MATCH && dataBase[i]->getPESEL() == pes) {
       dataBase.erase(dataBase.begin() + i);
       break;
     }
