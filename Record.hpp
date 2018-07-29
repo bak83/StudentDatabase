@@ -3,6 +3,7 @@
 #include <iostream>
 #include <limits>
 #include <string>
+#include <iomanip>
 
 #define NO_MATCH std::numeric_limits<int>::max()
 
@@ -10,7 +11,11 @@ struct address_t {
   std::string city;
   std::string street;
   int number;
-  void displayAddress() { std::cout << city << ", " << street << " " << number; }
+  void displayAddress()
+  {
+      std::cout << city << " " << street << std::right << std::setw(11) << " " << number;
+  }
+
 };
 
 enum gender_t { female, male };

@@ -9,4 +9,4 @@ std::string Record::getSurname() const { return surname; }
 
 uint64_t Record::getPESEL() const { return PESEL; }
 
-address_t getAddress() const { return address; }
+address_t Record::getAddress() const { return address; }

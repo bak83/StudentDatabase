@@ -13,5 +13,10 @@ void Student::showAll()
   std::cout << std::right << std::setw(13) << getName();
   std::cout << std::right << std::setw(13) << getSurname();
   std::cout << std::right << std::setw(9) << getIndex();
+  std::cout << std::right << std::setw(14) << getPESEL();
+  std::cout << std::right << std::setw(15);
+  getAddress().displayAddress();
+
+
   std::cout << std::endl;
 }
