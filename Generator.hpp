@@ -7,6 +7,7 @@ class Generator
 public:
     void generateName(int);
     void generateSurname(int);
+    void setGender(int);
 
     Record* generateRecord();
 };

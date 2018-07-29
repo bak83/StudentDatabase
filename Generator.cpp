@@ -37,9 +37,9 @@ void Generator::generateSurname(int gend)
 {
     std::fstream file;
 
-    if (gend == 1)
+    if (gend == 0)
         file.open("SurnamesFemale.txt", std::ios::in);
-    else if (gend == 0)
+    else if (gend == 1)
         file.open("SurnamesMale.txt", std::ios::in);
 
     if (file.good() == false) {
@@ -62,12 +62,21 @@ void Generator::generateSurname(int gend)
     file.close();
 }
 
+void Generator::setGender(int gend)
+{
+    if (gend == 0)
+        record->gender = female;
+    else if (gend == 1)
+        record->gender = male;
+}
+
 Record* Generator::generateRecord()
 {
     int randGender = rand() % 2;
 
     generateName(randGender);
     generateSurname(randGender);
+    setGender(randGender);
 
     return record;
 }
