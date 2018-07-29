@@ -40,6 +40,12 @@ int main() {
 
   base.saveToFile();
 
+  DataBase base2;
+
+  base2.loadFile();
+
+  base2.displayRecordList();
+
   delete s1, s2, s3, e1, e2;
 
   return 0;

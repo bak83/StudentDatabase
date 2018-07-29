@@ -5,7 +5,10 @@
 #include <fstream>
 #include <sstream>
 
-void DataBase::addNewRecord(Record *r) { dataBase.push_back(r); }
+void DataBase::addNewRecord(Record *r)
+{
+    dataBase.push_back(r);
+}
 
 void DataBase::displayRecordList()
 {
@@ -103,16 +106,32 @@ void DataBase::loadFile()
     while (std::getline(ss, indivString, separator)) {
       strVec.push_back(indivString);
     }
+    uint64_t peselNum= std::stol(strVec[3]);
+    int houseNum = std::stoi(strVec[7]);
     if (strVec[0] == "S") {
-      uint64_t peselNum= std::stol(strVec[3]);
-
-      //if (strVec[4] == "0")
-     // Student* studentPtr = new Student(strVec[1], strVec[2], peselNum);
-      // addNewRecord(studentPtr);
+        int indexNum = stoi(strVec[8]);
+        if (strVec[4] == "0") {
+            Student* studentPtr = new Student(strVec[1], strVec[2], female, peselNum,
+            {strVec[5], strVec[6], houseNum}, indexNum);
+            addNewRecord(studentPtr);
+        }
+        else if (strVec[4] == "1") {
+            Student* studentPtr = new Student(strVec[1], strVec[2], male, peselNum,
+            {strVec[5], strVec[6], houseNum}, indexNum);
+            addNewRecord(studentPtr);
+        }
     } else if (strVec[0] == "E") {
-      int salaryNum = std::stoi(strVec[3]);
-      // Employee* employeePtr = new Employee(strVec[1], strVec[2], salaryNum);
-      // addNewRecord(employeePtr);
+        int salaryNum = std::stoi(strVec[8]);
+        if (strVec[4] == "0") {
+            Employee* employeePtr = new Employee(strVec[1], strVec[2], female, peselNum,
+            {strVec[5], strVec[6], houseNum}, salaryNum);
+            addNewRecord(employeePtr);
+        }
+        else if (strVec[4] == "1") {
+            Employee* employeePtr = new Employee(strVec[1], strVec[2], male, peselNum,
+            {strVec[5], strVec[6], houseNum}, salaryNum);
+            addNewRecord(employeePtr);
+        }
     }
     strVec.clear();
   }

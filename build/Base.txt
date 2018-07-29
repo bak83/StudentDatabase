@@ -1,4 +1,4 @@
-S,Monika,Czajkowska,223509
-E,Roman,Czarny,3565
-E,Elzbieta,Krol,3740
-S,Adam,Malysz,234398
+S:Monika:Czajkowska:12345678914:0:Krakow:Nozownicza:8:223509
+E:Elzbieta:Krol:12345678915:0:Wroclaw:Dworcowa:9:3740
+E:Roman:Czarny:12345678916:1:Wroclaw:Gdanska:45:3565
+S:Adam:Malysz:95021333374:1:Wroclaw:Miodowa:4:234398
