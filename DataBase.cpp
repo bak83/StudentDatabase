@@ -1,4 +1,4 @@
-#include "DataBase.hpp"
+﻿#include "DataBase.hpp"
 
 #include <algorithm>
 #include <array>
@@ -51,7 +51,7 @@ void DataBase::removeStudentByIndex(int idx)
   }
 }
 
-void DataBase::removeStudentByPESEL(uint64_t pes)
+void DataBase::removeRecordByPESEL(uint64_t pes)
 {
   for (int i = 0; i < dataBase.size(); ++i) {
     if (dataBase[i]->getPESEL() < NO_MATCH && dataBase[i]->getPESEL() == pes) {
@@ -161,23 +161,21 @@ void DataBase::validatePESEL(uint64_t pesel)
     std::cout << "PESEL is incorrect" << std::endl;
 }
 
-Record *DataBase::getRecord(size_t position) const \
+Record *DataBase::getRecord(size_t position) const
 {
     return dataBase[position];
 }
-/*
-void DataBase::searchRecord()
-{
-    std::string myString ="Adam";
-    auto it = std::find_if(dataBase.begin(), dataBase.end(), [&myString](const
-Record& obj) {return obj.getName() == myString;});
 
-    if (it != dataBase.end())
-    {
-      // found element. it is an iterator to the first matching element.
-      // if you really need the index, you can also get it:
-      auto index = std::distance(dataBase.begin(), it);
-      std::cout<< index << std::endl;
-    }
+Record *DataBase::searchRecordBySurname(std::string surname) const
+{
+    for (int i = 0; i < dataBase.size(); ++i){
+         if (dataBase[i]->getSurname()==surname)
+             return dataBase[i]; }
 }
-*/
+
+Record *DataBase::searchRecordByPESEL(uint64_t pesel) const
+{
+    for (int i = 0; i < dataBase.size(); ++i){
+         if (dataBase[i]->getPESEL()==pesel)
+             return dataBase[i]; }
+}

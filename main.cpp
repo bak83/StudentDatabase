@@ -30,13 +30,15 @@ int main() {
   base.displayRecordList();
 
   base.removeStudentByIndex(225587);
-  base.removeStudentByPESEL(95021333374);
+  base.removeRecordByPESEL(95021333374);
   base.displayRecordList();
 
   base.sortBySurname();
   base.sortByPESEL();
   base.displayRecordList();
   base.validatePESEL(95021333356);
+  base.searchRecordBySurname("Czajkowska");
+  base.searchRecordByPESEL(12345678913);
 
   base.saveToFile();
 
