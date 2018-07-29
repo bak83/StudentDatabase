@@ -16,6 +16,10 @@ public:
   void loadFile();
   void sortStudentsByIndex();
   void sortBySurname();
+  void sortByPESEL();
   void removeStudentByIndex(int);
-  Record *getRecord(size_t) const;
+  void removeStudentByPESEL(uint64_t);
+  void validatePESEL(uint64_t);
+ Record *getRecord(size_t) const;
+  //void searchRecord();
 };

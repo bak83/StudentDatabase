@@ -1,16 +1,13 @@
 #include "DataBase.hpp"
 
 #include <algorithm>
+#include <array>
 #include <fstream>
 #include <sstream>
 
-void DataBase::addNewRecord(Record *r)
-{
-    dataBase.push_back(r);
-}
+void DataBase::addNewRecord(Record *r) { dataBase.push_back(r); }
 
-void DataBase::displayRecordList()
-{
+void DataBase::displayRecordList() {
   std::cout << "BAZA DANYCH:" << std::endl;
   for (int i = 0; i < dataBase.size(); ++i) {
     std::cout << i + 1 << ". ";
@@ -18,22 +15,26 @@ void DataBase::displayRecordList()
   }
 }
 
-void DataBase::sortStudentsByIndex()
-{
-  std::sort(dataBase.begin(), dataBase.end(), [](const Record *p1, const Record *p2) {
-      return p1->getIndex() < p2->getIndex();
-  });
+void DataBase::sortStudentsByIndex() {
+  std::sort(dataBase.begin(), dataBase.end(),
+            [](const Record *p1, const Record *p2) {
+              return p1->getIndex() < p2->getIndex();
+            });
 }
 
-void DataBase::sortBySurname()
-{
+void DataBase::sortBySurname() {
   std::sort(dataBase.begin(), dataBase.end(), [](Record *p1, Record *p2) {
     return p1->getSurname() < p2->getSurname();
   });
 }
 
-void DataBase::removeStudentByIndex(int idx)
-{
+void DataBase::sortByPESEL() {
+  std::sort(dataBase.begin(), dataBase.end(), [](Record *p1, Record *p2) {
+    return p1->getPESEL() < p2->getPESEL();
+  });
+}
+
+void DataBase::removeStudentByIndex(int idx) {
   for (int i = 0; i < dataBase.size(); ++i) {
     if (dataBase[i]->getIndex() < NO_MATCH && dataBase[i]->getIndex() == idx) {
       dataBase.erase(dataBase.begin() + i);
@@ -42,8 +43,16 @@ void DataBase::removeStudentByIndex(int idx)
   }
 }
 
-void DataBase::saveToFile()
-{
+void DataBase::removeStudentByPESEL(uint64_t idx) {
+  for (int i = 0; i < dataBase.size(); ++i) {
+    if (dataBase[i]->getPESEL() < NO_MATCH && dataBase[i]->getPESEL() == idx) {
+      dataBase.erase(dataBase.begin() + i);
+      break;
+    }
+  }
+}
+
+void DataBase::saveToFile() {
   std::fstream file;
   file.open("Base.txt", std::ios::out);
 
@@ -62,8 +71,7 @@ void DataBase::saveToFile()
   file.close();
 }
 
-void DataBase::loadFile()
-{
+void DataBase::loadFile() {
   std::fstream file;
   file.open("Base.txt", std::ios::in);
 
@@ -98,7 +106,45 @@ void DataBase::loadFile()
   file.close();
 }
 
-Record *DataBase::getRecord(size_t position) const
-{
+void DataBase::validatePESEL(uint64_t pesel) {
+  // TODO: In future, is will be "bool" method
+
+  std::array<int, 11> pesel_array = {0};
+  for (int i = 10; i >= 0; i--) {
+    pesel_array[i] = pesel % 10;
+    pesel /= 10;
+  }
+
+  int sum = 0;
+  std::array<int, 10> TEMP{{9, 7, 3, 1, 9, 7, 3, 1, 9, 7}};
+
+  for (int i = 0; i < 10; i++)
+    sum += pesel_array[i] * TEMP[i];
+
+  if (sum % 10 == pesel_array[10])
+    std::cout << "PESEL is correct" << std::endl;
+  else
+    std::cout << "PESEL is incorrect" << std::endl;
+}
+
+Record *DataBase::getRecord(size_t position) const {
   return dataBase[position];
 }
+/*
+void DataBase::searchRecord()
+{
+
+
+    std::string myString ="Adam";
+    auto it = std::find_if(dataBase.begin(), dataBase.end(), [&myString](const
+Record& obj) {return obj.getName() == myString;});
+
+    if (it != dataBase.end())
+    {
+      // found element. it is an iterator to the first matching element.
+      // if you really need the index, you can also get it:
+      auto index = std::distance(dataBase.begin(), it);
+      std::cout<< index << std::endl;
+    }
+}
+*/
