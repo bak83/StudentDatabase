@@ -66,10 +66,14 @@ void DataBase::saveToFile()
   for (int i = 0; i < dataBase.size(); ++i) {
     if (dataBase[i]->getIndex() < NO_MATCH) {
       file << "S" << ":" << dataBase[i]->getName() << ":" << dataBase[i]->getSurname()
-           << ":" << dataBase[i]->getIndex() << std::endl;
+           << ":" << dataBase[i]->getPESEL() << ":" << dataBase[i]->getGender()
+           << ":" << dataBase[i]->getAddress().city << ":" << dataBase[i]->getAddress().street
+           << ":" << dataBase[i]->getAddress().number << ":" << dataBase[i]->getIndex() << std::endl;
     } else if (dataBase[i]->getSalary() < NO_MATCH) {
       file << "E" << ":" << dataBase[i]->getName() << ":" << dataBase[i]->getSurname()
-           << ":" << dataBase[i]->getSalary() << std::endl;
+           << ":" << dataBase[i]->getPESEL() << ":" << dataBase[i]->getGender()
+           << ":" << dataBase[i]->getAddress().city << ":" << dataBase[i]->getAddress().street
+           << ":" << dataBase[i]->getAddress().number << ":" << dataBase[i]->getSalary() << std::endl;
     } else {
       std::cout << "Blad zapisu do pliku" << std::endl;
     }
@@ -100,8 +104,10 @@ void DataBase::loadFile()
       strVec.push_back(indivString);
     }
     if (strVec[0] == "S") {
-      int indexNum = std::stoi(strVec[3]);
-      // Student* studentPtr = new Student(strVec[1], strVec[2], indexNum);
+      uint64_t peselNum= std::stol(strVec[3]);
+
+      //if (strVec[4] == "0")
+     // Student* studentPtr = new Student(strVec[1], strVec[2], peselNum);
       // addNewRecord(studentPtr);
     } else if (strVec[0] == "E") {
       int salaryNum = std::stoi(strVec[3]);
