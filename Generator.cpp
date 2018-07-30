@@ -64,7 +64,7 @@ void Generator::generateSurname(int gend)
     file.close();
 }
 
-void Generator::setGender(int gend)
+void Generator::generateGender(int gend)
 {
     if (gend == 0)
         record->gender = female;
@@ -125,17 +125,46 @@ void Generator::generateAddress()
 
 void Generator::generatePESEL(int gend)
 {
+    if (gend == 0)
+        record->PESEL = 12345678901;
+    else if (gend == 1)
+        record->PESEL = 99876543212;
+}
 
+int Generator::generateIndex()
+{
+    return 228769;
+}
+
+int Generator::generateSalary()
+{
+    return 3200;
 }
 
 Record* Generator::generateRecord()
 {
-    int randGender = rand() % 2;
+    int randNum = rand() % 2; // losuje plec
 
-    generateName(randGender);
-    generateSurname(randGender);
-    setGender(randGender);
+    generateName(randNum);
+    generateSurname(randNum);
+    generateGender(randNum);
     generateAddress();
+    generatePESEL(randNum);
 
-    return record;
+    randNum = rand() % 2;   // losuje typ student/pracownik
+
+    if (randNum == 0) {
+        Student student(record->getName(), record->getSurname(),
+                        record->getGender(), record->getPESEL(),
+                        record->getAddress(), generateIndex());
+        Student* studentPtr = &student;
+        return studentPtr;
+    }
+    else {
+        Employee employee(record->getName(), record->getSurname(),
+                          record->getGender(), record->getPESEL(),
+                          record->getAddress(), generateSalary());
+        Employee* employeePtr = &employee;
+        return employeePtr;
+    }
 }
