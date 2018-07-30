@@ -8,7 +8,7 @@ struct Generator
     std::string generateCity();
     std::string generateStreet();
     int generateHouseNumber();
-    uint64_t generatePESEL(int);
+    uint64_t generatePESEL(int, int);
     int generateIndex();
     int generateSalary();
 

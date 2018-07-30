@@ -1,4 +1,10 @@
-S:Monika:Czajkowska:12345678914:0:Krakow:Nozownicza:8:223509
-E:Elzbieta:Krol:12345678915:0:Wroclaw:Dworcowa:9:3740
-E:Roman:Czarny:12345678916:1:Wroclaw:Gdanska:45:3565
-S:Adam:Malysz:95021333374:1:Wroclaw:Miodowa:4:234398
+S:Ryszard:Czaja:97061968699:1:Krakow:1 Maja:128:203023
+E:Franciszek:Kowalski:82072123672:1:Bydgoszcz:Nowowiejska:33:4329
+E:Magdalena:Kasperek:72062362282:0:Bydgoszcz:Mickiewicza:107:4007
+E:Martyna:Dusza:61122543781:0:Gdansk:Sienkiewicza:114:3337
+S:Maksymilian:Radzin:88030389614:1:Gdansk:Bystrzycka:28:248884
+S:Grzegorz:Ciupek:97061959518:1:Poznan:Malinowa:135:208645
+S:Tomasz:Brylak:89011188879:1:Krakow:Bystrzycka:50:208853
+S:Maja:Kosecka:97050358689:0:Gdansk:Rejonowa:135:220860
+E:Zenon:Banasik:57102915235:1:Warszawa:Kwiatowa:92:5202
+S:Denis:Kowalski:94101661732:1:Krakow:Szkolna:10:233094

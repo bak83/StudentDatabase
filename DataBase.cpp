@@ -9,7 +9,9 @@
 
 void DataBase::addNewRecord(Record *r)
 {
-    dataBase.push_back(r);
+    if (validatePESEL(r->getPESEL()))
+        dataBase.push_back(r);
+    else ;
 }
 
 void DataBase::displayRecordList()
@@ -155,18 +157,10 @@ bool DataBase::validatePESEL(uint64_t pesel)
         sum += peselArray[i] * coeffs[i];
     }
 
-    std::cout << sum << std::endl;
-
-    for (auto i : peselArray)
-        std::cout << i << " ";
-
-    if (sum % 10 == 0) {
-        std::cout << "Pesel poprawny" << std::endl;
+    if (sum % 10 == 0)
         return true;
-    } else {
-        std::cout << "Pesel niepoprawny" << std::endl;
+    else
         return false;
-    }
 }
 
 Record *DataBase::getRecord(size_t position) const

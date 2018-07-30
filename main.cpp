@@ -52,6 +52,7 @@ int main() {
   base3.generate(10);
 
   base3.displayRecordList();
+  base3.saveToFile();
 
   base.validatePESEL(95021333356);
 
