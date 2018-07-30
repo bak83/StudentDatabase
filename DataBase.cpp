@@ -39,14 +39,14 @@ void DataBase::sortEmployeesBySalary()
 
 void DataBase::sortBySurname()
 {
-  std::sort(dataBase.begin(), dataBase.end(), [](Record *p1, Record *p2) {
+  std::sort(dataBase.begin(), dataBase.end(), [](const Record *p1, const Record *p2) {
     return p1->getSurname() < p2->getSurname();
   });
 }
 
 void DataBase::sortByPESEL()
 {
-  std::sort(dataBase.begin(), dataBase.end(), [](Record *p1, Record *p2) {
+  std::sort(dataBase.begin(), dataBase.end(), [](const Record *p1, const Record *p2) {
     return p1->getPESEL() < p2->getPESEL();
   });
 }
@@ -130,7 +130,8 @@ void DataBase::loadFile()
             {strVec[5], strVec[6], houseNum}, indexNum);
             addNewRecord(studentPtr);
         }
-    } else if (strVec[0] == "E") {
+    }
+    else if (strVec[0] == "E") {
         int salaryNum = std::stoi(strVec[8]);
         if (strVec[4] == "0") {
             Employee* employeePtr = new Employee(strVec[1], strVec[2], female, peselNum,
@@ -170,24 +171,43 @@ bool DataBase::validatePESEL(uint64_t pesel)
         return false;
 }
 
-Record *DataBase::getRecord(size_t position) const
+Record* DataBase::getRecord(size_t position) const
 {
     return dataBase[position];
 }
 
-Record *DataBase::searchRecordBySurname(std::string surname) const
+Record* DataBase::searchRecordBySurname(std::string surname) const
 {
-    for (int i = 0; i < dataBase.size(); ++i){
+    for (int i = 0; i < dataBase.size(); ++i) {
          if (dataBase[i]->getSurname()==surname)
-             return dataBase[i]; }
+             return dataBase[i];
+    }
+
+    return nullptr;
 }
 
-Record *DataBase::searchRecordByPESEL(uint64_t pesel) const
+Record* DataBase::searchRecordByPESEL(uint64_t pesel) const
 {
     for (int i = 0; i < dataBase.size(); ++i){
-         if (dataBase[i]->getPESEL()==pesel)
-             return dataBase[i]; }
+         if (dataBase[i]->getPESEL() == pesel)
+             return dataBase[i];
+    }
+
+    return nullptr;
 }
+
+/*void DataBase::modifySalaryAndAddressByPESEL(uint64_t pes, int sal, std::string cit,
+                                             std::string st, int houseNum)
+{
+    for (int i = 0; i < dataBase.size(); ++i) {
+        if (dataBase[i]->getPESEL() == pes && dataBase[i]->getSalary() < NO_MATCH) {
+            dataBase[i]->setSalary(sal);
+           // dataBase[i]->getAddress().city = cit;
+           // dataBase[i]->getAddress().street = str;
+           // dataBase[i]->getAddress().number = houseNum;
+        }
+    }
+}*/
 
 void DataBase::generate(int n)
 {

@@ -22,6 +22,8 @@ public:
     void removeRecordByPESEL(uint64_t);
     bool validatePESEL(uint64_t);
     void generate(int);
+   // void modifySalaryAndAddressByPESEL(uint64_t, int,
+   //                                    std::string, std::string, int);
     Record *getRecord(size_t) const;
     Record *searchRecordBySurname(std::string)const;
     Record *searchRecordByPESEL(uint64_t)const;
