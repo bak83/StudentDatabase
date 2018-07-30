@@ -30,6 +30,13 @@ void DataBase::sortStudentsByIndex()
             });
 }
 
+void DataBase::sortEmployeesBySalary()
+{
+  std::sort(dataBase.begin(), dataBase.end(), [](const Record *p1, const Record *p2) {
+              return p1->getSalary() < p2->getSalary();
+            });
+}
+
 void DataBase::sortBySurname()
 {
   std::sort(dataBase.begin(), dataBase.end(), [](Record *p1, Record *p2) {
@@ -56,12 +63,12 @@ void DataBase::removeStudentByIndex(int idx)
 
 void DataBase::removeRecordByPESEL(uint64_t pes)
 {
-  for (int i = 0; i < dataBase.size(); ++i) {
-    if (dataBase[i]->getPESEL() < NO_MATCH && dataBase[i]->getPESEL() == pes) {
-      dataBase.erase(dataBase.begin() + i);
-      break;
+    for (int i = 0; i < dataBase.size(); ++i) {
+        if (dataBase[i]->getPESEL() == pes) {
+            dataBase.erase(dataBase.begin() + i);
+            break;
+        }
     }
-  }
 }
 
 void DataBase::saveToFile()
