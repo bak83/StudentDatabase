@@ -196,18 +196,18 @@ Record* DataBase::searchRecordByPESEL(uint64_t pesel) const
     return nullptr;
 }
 
-/*void DataBase::modifySalaryAndAddressByPESEL(uint64_t pes, int sal, std::string cit,
+void DataBase::modifySalaryAndAddressByPESEL(uint64_t pes, int sal, std::string cit,
                                              std::string st, int houseNum)
 {
     for (int i = 0; i < dataBase.size(); ++i) {
         if (dataBase[i]->getPESEL() == pes && dataBase[i]->getSalary() < NO_MATCH) {
-            dataBase[i]->setSalary(sal);
+          //  dataBase[i]->setSalary(sal);
            // dataBase[i]->getAddress().city = cit;
            // dataBase[i]->getAddress().street = str;
            // dataBase[i]->getAddress().number = houseNum;
         }
     }
-}*/
+}
 
 void DataBase::generate(int n)
 {

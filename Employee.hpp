@@ -9,10 +9,10 @@ public:
   Employee(std::string, std::string, gender_t, uint64_t, address_t, int);
 
   int getSalary() const;
-//  void setSalary() (int);
+ // void setSalary(int) override;
 
   void showAll() override;
 
   ///////////////////////////////
-  virtual int getIndex() const { return NO_MATCH; }
+  int getIndex() const override { return NO_MATCH; }
 };
