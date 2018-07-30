@@ -1,0 +1,10 @@
+Warszawa
+Krakow
+Lodz
+Wroclaw
+Poznan
+Gdansk
+Szczecin
+Bydgoszcz
+Lublin
+Bialystok
