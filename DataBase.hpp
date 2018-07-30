@@ -20,7 +20,8 @@ public:
   void removeStudentByIndex(int);
   void removeRecordByPESEL(uint64_t);
   void validatePESEL(uint64_t);
- Record *getRecord(size_t) const;
+  void generate(int);
+  Record *getRecord(size_t) const;
   Record *searchRecordBySurname(std::string)const;
 Record *searchRecordByPESEL(uint64_t)const;
 };

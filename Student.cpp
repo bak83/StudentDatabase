@@ -17,7 +17,7 @@ void Student::showAll()
       std::cout << std::right << std::setw(4) << "K";
   else if (getGender() == 1)
       std::cout << std::right << std::setw(4) << "M";
-  std::cout << std::right << std::setw(25) << getAddress().toString();
+  std::cout << std::right << std::setw(30) << getAddress().toString();
   std::cout << std::right << std::setw(9) << getIndex();
   std::cout << std::endl;
 }

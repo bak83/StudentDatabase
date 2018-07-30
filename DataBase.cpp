@@ -1,9 +1,11 @@
 ﻿#include "DataBase.hpp"
+#include "Generator.hpp"
 
 #include <algorithm>
 #include <array>
 #include <fstream>
 #include <sstream>
+#include <iomanip>
 
 void DataBase::addNewRecord(Record *r)
 {
@@ -14,15 +16,14 @@ void DataBase::displayRecordList()
 {
   std::cout << "BAZA DANYCH:" << std::endl;
   for (int i = 0; i < dataBase.size(); ++i) {
-    std::cout << i + 1 << ". ";
+    std::cout << std::right << std::setw(3) << i + 1 << ". ";
     dataBase.at(i)->showAll();
   }
 }
 
 void DataBase::sortStudentsByIndex()
 {
-  std::sort(dataBase.begin(), dataBase.end(),
-            [](const Record *p1, const Record *p2) {
+  std::sort(dataBase.begin(), dataBase.end(), [](const Record *p1, const Record *p2) {
               return p1->getIndex() < p2->getIndex();
             });
 }
@@ -179,3 +180,40 @@ Record *DataBase::searchRecordByPESEL(uint64_t pesel) const
          if (dataBase[i]->getPESEL()==pesel)
              return dataBase[i]; }
 }
+
+void DataBase::generate(int n)
+{
+    Generator generator;
+    for (int i = 0; i < n; ++i) {
+        dataBase.push_back(generator.generateRecord());
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
