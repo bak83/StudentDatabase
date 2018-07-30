@@ -1,4 +1,6 @@
 #include "Generator.hpp"
+#include "Student.hpp"
+#include "Employee.hpp"
 
 #include <fstream>
 #include <ctime>
@@ -6,7 +8,7 @@
 
 std::string Generator::generateName(int gend)
 {
-    std::fstream file;//
+    std::fstream file;
     std::string nameGen;
 
     if (gend == 0)
