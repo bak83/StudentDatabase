@@ -19,7 +19,7 @@ void DataBase::displayRecordList()
   std::cout << "BAZA DANYCH:" << std::endl;
   for (int i = 0; i < dataBase.size(); ++i) {
     std::cout << std::right << std::setw(3) << i + 1 << ". ";
-    dataBase.at(i)->showAll();
+    dataBase[i]->showAll();
   }
 }
 
