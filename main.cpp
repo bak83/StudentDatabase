@@ -49,7 +49,9 @@ int main() {
   base2.displayRecordList();
 
   DataBase base3;
-  base3.generate(10);
+  base3.generate(15);
+  base3.sortStudentsByIndex();
+  base3.sortEmployeesBySalary();
 
   base3.displayRecordList();
   base3.saveToFile();

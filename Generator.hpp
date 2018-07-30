@@ -11,6 +11,7 @@ struct Generator
     uint64_t generatePESEL(int, int);
     int generateIndex();
     int generateSalary();
+    int generateRandomNumber(int, int);
 
     Record* generateRecord();
 };

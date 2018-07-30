@@ -7,6 +7,15 @@
 #include <random>
 #include <array>
 
+int Generator::generateRandomNumber(int min, int max)
+{
+    std::random_device rd;
+    std::mt19937 gen(rd());
+    std::uniform_int_distribution<> dis(min, max);
+
+    return dis(gen);
+}
+
 std::string Generator::generateName(int gend)
 {
     std::fstream file;
@@ -22,7 +31,7 @@ std::string Generator::generateName(int gend)
         exit(0);
     }
 
-    int randNum = rand() % 100 + 1;
+    int randNum = generateRandomNumber(1, 100);
 
     std::string line;
     int lineNum = 1;
@@ -55,7 +64,7 @@ std::string Generator::generateSurname(int gend)
         exit(0);
     }
 
-    int randNum = rand() % 100 + 1;
+    int randNum = generateRandomNumber(1, 100);
 
     std::string line;
     int lineNum = 1;
@@ -93,7 +102,7 @@ std::string Generator::generateCity()
         exit(0);
     }
 
-    int randNum = rand() % 10 + 1;
+    int randNum = generateRandomNumber(1, 10);
 
     std::string line;
     int lineNum = 1;
@@ -123,7 +132,7 @@ std::string Generator::generateStreet()
         exit(0);
     }
 
-    int randNum = rand() % 30 + 1;
+    int randNum = generateRandomNumber(1, 30);
 
     std::string line;
     int lineNum = 1;
@@ -143,7 +152,7 @@ std::string Generator::generateStreet()
 
 int Generator::generateHouseNumber()
 {
-    return rand() % 150 + 1;
+    return generateRandomNumber(1, 120);
 }
 
 uint64_t Generator::generatePESEL(int gend, int type)
@@ -151,17 +160,17 @@ uint64_t Generator::generatePESEL(int gend, int type)
     std::array<int,11> peselArray = {0};
     int randYear, randMonth, randDay, randSeries, randGender;
 
-    randMonth = rand() % 12 + 1;
+    randMonth = generateRandomNumber(1, 12);
     if (randMonth == 1 || randMonth == 3 || randMonth == 5 || randMonth == 7 ||
             randMonth == 8 || randMonth == 10 || randMonth == 12) {
 
-        randDay = rand() % 32 + 1;
+        randDay = generateRandomNumber(1, 31);
     }
     else if (randMonth == 4 || randMonth == 6 || randMonth == 9 || randMonth == 11) {
-        randDay = rand() % 31 + 1;
+        randDay = generateRandomNumber(1, 30);
     }
     else if (randMonth == 2) {
-         randDay = rand() % 29 + 1;
+         randDay = generateRandomNumber(1, 28);
     }
 
     peselArray[2] = randMonth / 10; // MIESIAC
@@ -169,31 +178,31 @@ uint64_t Generator::generatePESEL(int gend, int type)
     peselArray[4] = randDay / 10;   // DZIEŃ
     peselArray[5] = randDay % 10;
 
-    randSeries = rand() % 900 + 100;
+    randSeries = generateRandomNumber(100, 999);
     peselArray[6] = randSeries / 100;
     peselArray[7] = (randSeries % 100) / 10;
     peselArray[8] = randSeries % 10;
 
     if (type == 0) {
-        randYear = rand() % 17 + 1983;
+        randYear = generateRandomNumber(1983, 1999);
         peselArray[0] = (randYear % 100) / 10;  // ROK
         peselArray[1] = randYear % 10;
         if (gend == 0) {    // female student
-            peselArray[9] = (rand() % 5) * 2;
+            peselArray[9] = generateRandomNumber(0, 4) * 2;
         }
         else if (gend == 1) {  // male student
-            peselArray[9] = (rand() % 5) * 2 + 1;
+            peselArray[9] = generateRandomNumber(0, 4) * 2 + 1;
         }
     }
     else if (type == 1) {
-        randYear = rand() % 47 + 1948;
+        randYear = generateRandomNumber(1948, 1994);
         peselArray[0] = (randYear % 100) / 10;  // ROK
         peselArray[1] = randYear % 10;
         if (gend == 0) {    // female employee
-            peselArray[9] = (rand() % 5) * 2;
+            peselArray[9] = generateRandomNumber(0, 4) * 2;
         }
         else if (gend == 1) {   // male employee
-            peselArray[9] = (rand() % 5) * 2 + 1;
+            peselArray[9] = generateRandomNumber(0, 4) * 2 + 1;
         }
     }
 
@@ -217,18 +226,18 @@ uint64_t Generator::generatePESEL(int gend, int type)
 
 int Generator::generateIndex()
 {
-    return rand() % 50001 + 200000;
+    return generateRandomNumber(200000, 259999);
 }
 
 int Generator::generateSalary()
 {
-    return rand() % 4001 + 2000;
+    return generateRandomNumber(2500, 6000);
 }
 
 Record* Generator::generateRecord()
 {
-    int randNumGen = rand() % 2; // losuje plec
-    int randNumType = rand() % 2;   // losuje typ student/pracownik
+    int randNumGen = generateRandomNumber(0, 1); // losuje plec
+    int randNumType = generateRandomNumber(0, 1);   // losuje typ student/pracownik
 
     if (randNumType == 0) {
         Student* studentPtr = new Student(generateName(randNumGen), generateSurname(randNumGen),
