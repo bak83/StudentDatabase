@@ -1,5 +1,9 @@
+<<<<<<< HEAD
 ﻿#include "DataBase.hpp"
+=======
+#include "DataBase.hpp"
 #include "Generator.hpp"
+>>>>>>> Generate
 
 #include <algorithm>
 #include <array>
@@ -140,33 +144,26 @@ void DataBase::loadFile()
   file.close();
 }
 
-bool DataBase::validatePESEL(uint64_t pesel)
+void DataBase::validatePESEL(uint64_t pesel)
 {
-    std::array<int,11> coeffs = {1, 3, 7, 9, 1, 3, 7, 9, 1, 3, 1};
-    std::array<int,11> peselArray = {0};
+  // TODO: In future, is will be "bool" method
 
-    for (int i = 10; i >= 0; --i) { // zamiana PESELu na tablice
-        peselArray[i] = pesel % 10;
-        pesel /= 10;
-    }
+  std::array<int, 11> pesel_array = {0};
+  for (int i = 10; i >= 0; i--) {
+    pesel_array[i] = pesel % 10;
+    pesel /= 10;
+  }
 
-    int sum = 0;
-    for (int i = 0; i < 11; ++i) {
-        sum += peselArray[i] * coeffs[i];
-    }
+  int sum = 0;
+  std::array<int, 10> TEMP{{9, 7, 3, 1, 9, 7, 3, 1, 9, 7}};
 
-    std::cout << sum << std::endl;
+  for (int i = 0; i < 10; i++)
+    sum += pesel_array[i] * TEMP[i];
 
-    for (auto i : peselArray)
-        std::cout << i << " ";
-
-    if (sum % 10 == 0) {
-        std::cout << "Pesel poprawny" << std::endl;
-        return true;
-    } else {
-        std::cout << "Pesel niepoprawny" << std::endl;
-        return false;
-    }
+  if (sum % 10 == pesel_array[10])
+    std::cout << "PESEL is correct" << std::endl;
+  else
+    std::cout << "PESEL is incorrect" << std::endl;
 }
 
 Record *DataBase::getRecord(size_t position) const
@@ -187,6 +184,9 @@ Record *DataBase::searchRecordByPESEL(uint64_t pesel) const
          if (dataBase[i]->getPESEL()==pesel)
              return dataBase[i]; }
 }
+<<<<<<< HEAD
+=======
+*/
 
 void DataBase::generate(int n)
 {
@@ -195,3 +195,33 @@ void DataBase::generate(int n)
         dataBase.push_back(generator.generateRecord());
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+>>>>>>> Generate

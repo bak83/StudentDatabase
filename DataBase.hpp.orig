@@ -19,9 +19,14 @@ public:
   void sortByPESEL();
   void removeStudentByIndex(int);
   void removeRecordByPESEL(uint64_t);
-  bool validatePESEL(uint64_t);
-  void generate(int);
-  Record *getRecord(size_t) const;
+  void validatePESEL(uint64_t);
+<<<<<<< HEAD
+ Record *getRecord(size_t) const;
   Record *searchRecordBySurname(std::string)const;
 Record *searchRecordByPESEL(uint64_t)const;
+=======
+  void generate(int);
+  Record *getRecord(size_t) const;
+  //void searchRecord();
+>>>>>>> Generate
 };
