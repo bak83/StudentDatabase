@@ -20,6 +20,7 @@ public:
   void removeStudentByIndex(int);
   void removeStudentByPESEL(uint64_t);
   void validatePESEL(uint64_t);
- Record *getRecord(size_t) const;
+  void generate(int);
+  Record *getRecord(size_t) const;
   //void searchRecord();
 };

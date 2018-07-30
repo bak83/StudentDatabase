@@ -7,11 +7,16 @@ class Generator
     Record* record;
 
 public:
-    void generateName(int);
-    void generateSurname(int);
-    void generateGender(int);
+    std::string generateName(int);
+    std::string generateSurname(int);
+    gender_t generateGender(int);
+    std::string generateCity();
+    std::string generateStreet();
+    int generateHouseNumber();
     void generateAddress();
-    void generatePESEL(int);
+
+
+    uint64_t generatePESEL(int);
     int generateIndex();
     int generateSalary();
 

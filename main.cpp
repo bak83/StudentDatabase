@@ -46,6 +46,11 @@ int main() {
 
   base2.displayRecordList();
 
+  DataBase base3;
+  base3.generate(10);
+
+  base3.displayRecordList();
+
   delete s1, s2, s3, e1, e2;
 
   return 0;

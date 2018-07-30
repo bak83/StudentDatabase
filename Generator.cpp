@@ -4,9 +4,10 @@
 #include <ctime>
 #include <random>
 
-void Generator::generateName(int gend)
+std::string Generator::generateName(int gend)
 {
-    std::fstream file;
+    std::fstream file;//
+    std::string nameGen;
 
     if (gend == 0)
         file.open("NamesFemale.txt", std::ios::in);
@@ -25,18 +26,21 @@ void Generator::generateName(int gend)
 
     while (getline(file, line)) {
         if (lineNum == randNum) {
-            record->name = line;
+            nameGen = line;
             break;
         }
         lineNum++;
     }
 
     file.close();
+
+    return nameGen;
 }
 
-void Generator::generateSurname(int gend)
+std::string Generator::generateSurname(int gend)
 {
     std::fstream file;
+    std::string surnameGen;
 
     if (gend == 0)
         file.open("SurnamesFemale.txt", std::ios::in);
@@ -55,26 +59,30 @@ void Generator::generateSurname(int gend)
 
     while (getline(file, line)) {
         if (lineNum == randNum) {
-            record->surname = line;
+            surnameGen = line;
             break;
         }
         lineNum++;
-    }
+    };
 
     file.close();
+
+    return surnameGen;
 }
 
-void Generator::generateGender(int gend)
+gender_t Generator::generateGender(int gend)
 {
     if (gend == 0)
-        record->gender = female;
+        return female;
     else if (gend == 1)
-        record->gender = male;
+        return male;
 }
 
-void Generator::generateAddress()
+std::string Generator::generateCity()
 {
     std::fstream fileCities;
+    std::string city;
+
     fileCities.open("Cities.txt", std::ios::in);
 
     if (fileCities.good() == false) {
@@ -89,7 +97,7 @@ void Generator::generateAddress()
 
     while (getline(fileCities, line)) {
         if (lineNum == randNum) {
-            record->address.city = line;
+            city = line;
             break;
         }
         lineNum++;
@@ -97,7 +105,14 @@ void Generator::generateAddress()
 
     fileCities.close();
 
+    return city;
+}
+
+std::string Generator::generateStreet()
+{
     std::fstream fileStreets;
+    std::string street;
+
     fileStreets.open("Streets.txt", std::ios::in);
 
     if (fileStreets.good() == false) {
@@ -105,12 +120,14 @@ void Generator::generateAddress()
         exit(0);
     }
 
-    randNum = rand() % 30 + 1;
-    lineNum = 1;
+    int randNum = rand() % 30 + 1;
 
-    while (getline(fileStreets, line)) { // ***
+    std::string line;
+    int lineNum = 1;
+
+    while (getline(fileStreets, line)) {
         if (lineNum == randNum) {
-            record->address.street = line;
+            street = line;
             break;
         }
         lineNum++;
@@ -118,53 +135,49 @@ void Generator::generateAddress()
 
     fileStreets.close();
 
-    randNum = rand() % 400 + 1;
-
-    record->address.number = randNum;
+    return street;
 }
 
-void Generator::generatePESEL(int gend)
+int Generator::generateHouseNumber()
+{
+    return rand() % 150 + 1;
+}
+
+uint64_t Generator::generatePESEL(int gend)
 {
     if (gend == 0)
-        record->PESEL = 12345678901;
+        return 12345678901;
     else if (gend == 1)
-        record->PESEL = 99876543212;
+        return 99876543212;
 }
 
 int Generator::generateIndex()
 {
-    return 228769;
+    return rand() % 50001 + 200000;
 }
 
 int Generator::generateSalary()
 {
-    return 3200;
+    return rand() % 4001 + 2000;
 }
 
 Record* Generator::generateRecord()
 {
-    int randNum = rand() % 2; // losuje plec
+    int randNumGen = rand() % 2; // losuje plec
+    int randNumType = rand() % 2;   // losuje typ student/pracownik
 
-    generateName(randNum);
-    generateSurname(randNum);
-    generateGender(randNum);
-    generateAddress();
-    generatePESEL(randNum);
-
-    randNum = rand() % 2;   // losuje typ student/pracownik
-
-    if (randNum == 0) {
-        Student student(record->getName(), record->getSurname(),
-                        record->getGender(), record->getPESEL(),
-                        record->getAddress(), generateIndex());
-        Student* studentPtr = &student;
+    if (randNumType == 0) {
+        Student* studentPtr = new Student(generateName(randNumGen), generateSurname(randNumGen),
+                                          generateGender(randNumGen), generatePESEL(randNumGen),
+                                        { generateCity(), generateStreet(), generateHouseNumber() },
+                                          generateIndex());
         return studentPtr;
     }
-    else {
-        Employee employee(record->getName(), record->getSurname(),
-                          record->getGender(), record->getPESEL(),
-                          record->getAddress(), generateSalary());
-        Employee* employeePtr = &employee;
+    else if (randNumType == 1) {
+        Employee* employeePtr = new Employee(generateName(randNumGen), generateSurname(randNumGen),
+                                             generateGender(randNumGen), generatePESEL(randNumGen),
+                                           { generateCity(), generateStreet(), generateHouseNumber() },
+                                             generateSalary());
         return employeePtr;
     }
 }

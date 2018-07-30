@@ -14,3 +14,4 @@ address_t Record::getAddress() const { return address; }
 gender_t Record::getGender() const { return gender; }
 
 void Record::setName(std::string n) { name = n; }
+void Record::setSurname(std::string s) { surname = s; }
