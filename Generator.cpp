@@ -65,7 +65,7 @@ std::string Generator::generateSurname(int gend)
             break;
         }
         lineNum++;
-    };
+    }
 
     file.close();
 
