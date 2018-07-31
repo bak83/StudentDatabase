@@ -36,7 +36,7 @@ int main() {
   base.sortBySurname();
   base.sortByPESEL();
   base.displayRecordList();
- // base.validatePESEL(95021333356);
+                // base.validatePESEL(95021333356);
   base.searchRecordBySurname("Czajkowska");
   base.searchRecordByPESEL(12345678913);
 
@@ -57,6 +57,10 @@ int main() {
   base3.saveToFile();
 
   base.validatePESEL(95021333356);
+
+  base.modifyAddressByPESEL(12345678915, "New_City","New_Street", 7);
+  base.modifySalaryByPESEL(12345678915, 4500);
+  base.displayRecordList();
 
   delete s1, s2, s3, e1, e2;
 

@@ -38,6 +38,9 @@ public:
 
   void setName(std::string);
   void setSurname(std::string);
+  void setAddressCity(std::string);
+  void setAddressStreet(std::string);
+  void setAddressNumber(int);
 
   virtual void showAll() = 0;
 

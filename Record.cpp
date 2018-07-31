@@ -15,3 +15,6 @@ gender_t Record::getGender() const { return gender; }
 
 void Record::setName(std::string n) { name = n; }
 void Record::setSurname(std::string s) { surname = s; }
+void Record::setAddressCity(std::string cit) { address.city = cit; }
+void Record::setAddressStreet(std::string str) { address.street = str; }
+void Record::setAddressNumber(int num) { address.number = num; }
