@@ -7,7 +7,7 @@ Employee::Employee(std::string n, std::string s, gender_t g, uint64_t p,
     : Record(n, s, g, p, a), salary(sal) {}
 
 int Employee::getSalary() const { return salary; }
-//void Employee::setSalary(int sal) { salary = sal; }
+void Employee::setSalary(int sal) { salary = sal; }
 
 void Employee::showAll()
 {

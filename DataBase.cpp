@@ -209,6 +209,16 @@ void DataBase::modifySalaryAndAddressByPESEL(uint64_t pes, int sal, std::string 
     }
 }
 
+void DataBase::modifySalaryByPESEL(uint64_t pes, int sal)
+{
+    for (int i = 0; i < dataBase.size(); ++i) {
+        if (dataBase[i]->getPESEL() == pes && dataBase[i]->getSalary() < NO_MATCH) {
+            dataBase[i]->setSalary(sal);
+            break;
+        }
+    }
+}
+
 void DataBase::generate(int n)
 {
     Generator generator;

@@ -44,5 +44,5 @@ public:
   ///////////////////////////////
   virtual int getIndex() const = 0;
   virtual int getSalary() const = 0;
- // virtual void setSalary(int) = 0;
+  virtual void setSalary(int) = 0;
 };

@@ -14,4 +14,5 @@ public:
 
   ///////////////////////////////
   int getSalary() const { return NO_MATCH; }
+  void setSalary(int s)  override {}
 };
